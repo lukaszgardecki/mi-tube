@@ -59,6 +59,23 @@ a {
     text-align: center;
 }
 
+.jumbotron {
+    background-image: url('../img/jumbotron.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 2rem;
+    text-align: center;
+}
+
+.jumbotron-header {
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+.jumbotron-description {
+    font-size: 1.2rem;
+}
+
 @media only screen and (min-width: 992px) {
     /*na ekranie powyżej 992px przycisk do rozwijania menu zostanie ukryty*/
     .menu-toggle {

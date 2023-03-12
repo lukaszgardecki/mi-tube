@@ -218,4 +218,20 @@ a {
         align-self: center;
         width: 960px;
     }
+
+    .movie {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .movie-rating-buttons {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .movie-rating-button {
+        font-size: 1.2rem;
+        margin: 0 4px;
+    }
+
 }

@@ -9,6 +9,5 @@ function toggleMenu() {
         menu.classList.add("expanded");
         toggle.querySelector('a').innerHTML = '<i id="toggle-icon" class="far fa-minus-square"></i>';
     }
-
-    toggle.addEventListener('click', toggleMenu, false);
 }
+toggle.addEventListener('click', toggleMenu, false);

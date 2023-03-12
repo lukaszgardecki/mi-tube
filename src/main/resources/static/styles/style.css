@@ -76,6 +76,46 @@ a {
     font-size: 1.2rem;
 }
 
+.list-heading,
+.list-description {
+    text-align: center;
+    margin: 16px 0;
+}
+
+.movie-list {
+    list-style-type: none;
+}
+
+.movie-list-item {
+    margin-bottom: 16px;
+    display: flex;
+    border: 1px #6d6d6d solid;
+}
+
+.movie-list-item-poster {
+    display: block;
+    max-width: 200px;
+}
+
+.movie-list-item-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+.movie-list-item-content > * {
+    margin: 8px 0;
+}
+
+.movie-list-item-title {
+    font-size: 1.6rem;
+}
+
+.movie-list-item-rating {
+    font-size: 1.6rem;
+}
+
 @media only screen and (min-width: 992px) {
     /*na ekranie powyżej 992px przycisk do rozwijania menu zostanie ukryty*/
     .menu-toggle {

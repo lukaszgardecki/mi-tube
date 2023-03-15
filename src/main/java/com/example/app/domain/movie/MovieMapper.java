@@ -8,7 +8,10 @@ public class MovieMapper {
         return new MovieDto(
                 movie.getId(),
                 movie.getTitle(),
-                movie.getOriginTitle(),
+                movie.getOriginalTitle(),
+                movie.getShortDescription(),
+                movie.getDescription(),
+                movie.getYoutubeTrailerId(),
                 movie.getReleaseYear(),
                 movie.getGenre().getName(),
                 movie.isPromoted()

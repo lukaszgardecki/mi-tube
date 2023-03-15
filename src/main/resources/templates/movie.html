@@ -5,31 +5,33 @@
       layout:decorate="~{layout}"
 >
     <head>
-        <title>Tytuł filmu - MovieClub</title>
+        <title th:text="|${movie.title} - MovieClub|">Tytuł filmu - MovieClub</title>
     </head>
     <body>
         <div class="container">
-            <main class="main-content">
+            <main class="main-content" layout:fragment="content">
                 <section class="movie">
                     <div class="movie-summary">
                         <img src="../static/img/poster-placeholder.png"
-                            alt="Tytuł filmu"
-                            class="movie-summary-cover"
+                             th:src="@{/img/poster-placeholder.png}"
+                             alt="Tytuł filmu"
+                             th:alt="${movie.title}"
+                             class="movie-summary-cover"
                         />
                         <div class="movie-summary-info">
-                            <h1 class="movie-summary-title">
+                            <h1 class="movie-summary-title" th:text="${movie.title}">
                                 Władca pierścieni
                             </h1>
-                            <p class="movie-summary-original-title">
+                            <p class="movie-summary-original-title" th:text="${movie.originalTitle}">
                                 Lord of the Rings
                             </p>
-                            <p class="movie-summary-item">
+                            <p class="movie-summary-item" th:text="|Rok: ${movie.releaseYear}|">
                                 Rok: 2001
                             </p>
                             <p class="movie-summary-item">
-                                Gatunek: <a href="#">Fantasy</a>
+                                Gatunek: <a href="#" th:href="@{|/gatunek/${movie.genre}|}" th:text="${movie.genre}">Fantasy</a>
                             </p>
-                            <p class="movie-summary-item">
+                            <p class="movie-summary-item" th:text="${movie.shortDescription}">
                                 Podróż odważnego hobbita i jego towarzyszy w poszukiwaniu pierścienia
                             </p>
                         </div>
@@ -38,7 +40,7 @@
                         <h2 class="movie-section-heading">Ocena</h2>
                         <div>
                             <p class="movie-rating-value" th:text="${avgRating}">4.0</p>
-                            <p>Liczba ocen: 123</p>
+                            <p style="text-align: center">Liczba ocen: 123</p>
                         </div>
                         <form action="#" class="movie-rating-form">
                             <p>Twoja ocena</p>
@@ -59,13 +61,14 @@
                     <h2 class="movie-section-heading">Trailer</h2>
                     <iframe width="560" height="315" class="movie-trailer"
                             src="https://www.youtube.com/embed/V75dMMIW2B4"
+                            th:src="|https://www.youtube.com/embed/${movie.youtubeTrailerId}|"
                             frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
                     </iframe>
                 </section>
 <!--    OPIS       -->
                 <section class="movie-section">
                     <h2 class="movie-section-heading">Opis</h2>
-                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                    <p th:text="${movie.description}">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
                         Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc
                         ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                     </p>

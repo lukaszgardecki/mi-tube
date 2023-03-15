@@ -4,20 +4,20 @@ public class MovieDto {
     private Long id;
     private String title;
     private String originalTitle;
+    private Integer releaseYear;
     private String shortDescription;
     private String description;
     private String youtubeTrailerId;
-    private Integer releaseYear;
     private String genre;
     private boolean promoted;
 
     public MovieDto(Long id,
                     String title,
                     String originalTitle,
+                    Integer releaseYear,
                     String shortDescription,
                     String description,
                     String youtubeTrailerId,
-                    Integer releaseYear,
                     String genre,
                     boolean promoted) {
         this.id = id;

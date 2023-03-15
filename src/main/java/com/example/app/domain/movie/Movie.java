@@ -10,10 +10,10 @@ public class Movie {
     private Long id;
     private String title;
     private String originalTitle;
+    private Integer releaseYear;
     private String shortDescription;
     private String description;
     private String youtubeTrailerId;
-    private Integer releaseYear;
     @ManyToOne
     @JoinColumn(name = "genre_id", referencedColumnName = "id")
     private Genre genre;

@@ -303,7 +303,7 @@ insert into movie (title, original_title, release_year, short_description, descr
 Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
 
 Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', 'V75dMMIW2B4', true, 4);
-insert into movie (title, original_title, release_year, short_description, description, youtube_trailer_id, promoted, genre_id) values ('Fullmetal Alchemist the Movie: Conqueror of Shamballa (Gekijô-ban hagane no renkinjutsushi: Shanbara wo yuku mono)', 'Phantom of the Megaplex', 1969, 'Integer tincidunt ante vel ipsum.', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
+insert into movie (title, original_title, release_year, short_description, description, youtube_trailer_id, promoted, genre_id) values ('Fullmetal Alchemist the Movie: Conqueror of Shamballa', 'Phantom of the Megaplex', 1969, 'Integer tincidunt ante vel ipsum.', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
 
 Fusce consequat. Nulla nisl. Nunc nisl.
 

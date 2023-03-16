@@ -23,4 +23,10 @@ public class MovieService {
     public Optional<MovieDto> findMovieById(Long id) {
         return movieRepository.findById(id).map(MovieMapper::map);
     }
+
+    public List<MovieDto> findMoviesByGenreName(String genre) {
+        return movieRepository.findAllByGenre_NameIgnoreCase(genre).stream()
+                .map(MovieMapper::map)
+                .toList();
+    }
 }

@@ -194,6 +194,20 @@ a {
     margin: auto;
 }
 
+.error-container {
+    margin: 32px auto;
+}
+
+.error-container > * {
+    display: block;
+    text-align: center;
+}
+
+.error-header,
+.error-icon {
+    font-size: 2rem;
+    margin: 16px 0;
+}
 
 
 @media only screen and (min-width: 992px) {

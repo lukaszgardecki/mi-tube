@@ -237,10 +237,24 @@ textarea {
 
 .mc-form > input,
 .mc-form > textarea,
+.mc-form > select,
 .mc-form > button {
     font-size: 1.2rem;
     color: black;
     padding: 8px;
+}
+
+.mc-form > option {
+    color: black;
+}
+
+.mc-form > input[type=checkbox] {
+    transform: scale(1.5);
+    margin-left: 5px;
+}
+
+.mc-form > input[type=file] {
+    color: white;
 }
 
 .mc-form > button {

@@ -221,6 +221,40 @@ a {
     text-align: center;
 }
 
+textarea {
+    font-family: inherit;
+}
+
+.mc-form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 32px;
+}
+
+.mc-form > * {
+    margin-top: 8px;
+}
+
+.mc-form > input,
+.mc-form > textarea,
+.mc-form > button {
+    font-size: 1.2rem;
+    color: black;
+    padding: 8px;
+}
+
+.mc-form > button {
+    margin-top:  16px;
+    background-color:  white;
+    color: #ffc107;
+    border: none;
+}
+
+.notification-bar {
+    text-align: center;
+    background-color: #ffc107;
+    padding: 8px 0;
+}
 
 @media only screen and (min-width: 992px) {
     /*na ekranie powyżej 992px przycisk do rozwijania menu zostanie ukryty*/

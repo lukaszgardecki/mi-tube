@@ -11,7 +11,7 @@ public class GenreDto {
         this.description = description;
     }
 
-    public GenreDto() {            
+    public GenreDto() {
     }
 
     public Long getId() {

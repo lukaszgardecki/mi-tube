@@ -13,7 +13,7 @@
                 <section class="movie">
                     <div class="movie-summary">
                         <img src="../static/img/poster-placeholder.png"
-                             th:src="@{/img/poster-placeholder.png}"
+                             th:src="${movie.poster ne null} ? @{|/img/${movie.poster}|} : @{/img/poster-placeholder.png}"
                              alt="Tytuł filmu"
                              th:alt="${movie.title}"
                              class="movie-summary-cover"

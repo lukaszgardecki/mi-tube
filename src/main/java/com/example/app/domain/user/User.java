@@ -12,7 +12,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String email;
-    private String pasword;
+    private String password;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",
@@ -38,11 +38,11 @@ public class User {
     }
 
     public String getPasword() {
-        return pasword;
+        return password;
     }
 
     public void setPasword(String pasword) {
-        this.pasword = pasword;
+        this.password = pasword;
     }
 
     public Set<UserRole> getRoles() {

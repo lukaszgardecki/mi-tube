@@ -10,7 +10,7 @@
     </head>
     <body>
         <main class="main-content" layout:fragment="content">
-            <form action="" method="post" class="mc-form" th:object="${genre}">
+            <form action="#" th:action="@{/admin/dodaj-gatunek}" method="post" class="mc-form" th:object="${genre}">
                 <label for="genreName">Nazwa</label>
                 <input type="text" id="genreName" placeholder="np.Horror" th:field="*{name}">
 

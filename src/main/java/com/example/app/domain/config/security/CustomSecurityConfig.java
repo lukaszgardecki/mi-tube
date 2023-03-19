@@ -19,7 +19,9 @@ public class CustomSecurityConfig {
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers("/admin/**").hasAnyRole(EDITOR_ROLE, ADMIN_ROLE)
                         .anyRequest().permitAll())
-                .formLogin(Customizer.withDefaults());
+                .formLogin(login -> login
+                        .loginPage("/login")
+                        .permitAll());
 
         return http.build();
     }

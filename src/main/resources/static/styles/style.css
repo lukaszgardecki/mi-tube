@@ -270,6 +270,11 @@ textarea {
     padding: 8px 0;
 }
 
+.mc-form-message {
+    color: #ffc107;
+    text-align: center;
+}
+
 @media only screen and (min-width: 992px) {
     /*na ekranie powyżej 992px przycisk do rozwijania menu zostanie ukryty*/
     .menu-toggle {

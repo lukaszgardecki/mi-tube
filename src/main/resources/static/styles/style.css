@@ -275,6 +275,11 @@ textarea {
     text-align: center;
 }
 
+.registration-link {
+    text-align: center;
+    margin-top: 32px;
+}
+
 @media only screen and (min-width: 992px) {
     /*na ekranie powyżej 992px przycisk do rozwijania menu zostanie ukryty*/
     .menu-toggle {

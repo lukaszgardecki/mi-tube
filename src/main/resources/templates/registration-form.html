@@ -14,10 +14,10 @@
             <form action="#" th:action=" @{/rejestracja}" method="post" class="mc-form" th:object="${user}">
 
                 <label for="email">Adres email</label>
-                <input id="email" name="email" placeholder="nazwa użytkownika" th:field="*{email}">
+                <input id="email" type="email" name="email" placeholder="nazwa użytkownika" th:field="*{email}">
 
                 <label for="password">Hasło</label>
-                <input id="password" name="password" placeholder="hasło" th:field="*{password}">
+                <input id="password" type="password" name="password" placeholder="hasło" th:field="*{password}">
 
                 <button type="submit">Zarejestruj się</button>
             </form>

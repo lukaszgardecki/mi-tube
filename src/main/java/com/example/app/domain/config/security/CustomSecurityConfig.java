@@ -28,8 +28,10 @@ public class CustomSecurityConfig {
                         .permitAll())
                 .logout(logout -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout/**", HttpMethod.GET.name()))
-                        .logoutSuccessUrl("/login?logout").permitAll());
+                        .logoutSuccessUrl("/login?logout").permitAll())
+                .csrf().ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**"));
 
+        http.headers().frameOptions().sameOrigin();
         return http.build();
     }
 

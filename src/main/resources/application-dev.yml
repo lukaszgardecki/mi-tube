@@ -6,6 +6,8 @@ spring:
   web:
     resources:
       static-locations: classpath:/static/,file:./uploads/
+  jpa:
+    show-sql: true
 app:
   storage:
     location: ./uploads

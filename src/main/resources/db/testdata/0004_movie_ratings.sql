@@ -1,5 +1,5 @@
 insert into movie_rating
-    (user_id, film_id, rating)
+    (user_id, movie_id, rating)
 values
     (1, 1, 3),
     (1, 2, 4),

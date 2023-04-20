@@ -1,10 +1,18 @@
 package com.example.app.domain.movie;
 
 import com.example.app.domain.movie.dto.MovieDto;
+import com.example.app.domain.rating.Rating;
 
 public class MovieMapper {
 
     static MovieDto map(Movie movie) {
+
+        double avgRating = movie.getRatings().stream()
+                .map(Rating::getRating)
+                .mapToDouble(val -> val)
+                .average().orElse(0);
+        int ratingCount = movie.getRatings().size();
+
         return new MovieDto(
                 movie.getId(),
                 movie.getTitle(),
@@ -15,7 +23,9 @@ public class MovieMapper {
                 movie.getYoutubeTrailerId(),
                 movie.getGenre().getName(),
                 movie.isPromoted(),
-                movie.getPoster()
+                movie.getPoster(),
+                avgRating,
+                ratingCount
         );
     }
 }

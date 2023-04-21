@@ -27,8 +27,10 @@
                     <option th:each="genre : ${genres}" th:value="${genre.name}" th:text="${genre.name}"></option>
                 </select>
 
-                <label for="promoted">Promowanie na stronie głównej?</label>
-                <input type="checkbox" id="promoted" th:field="*{promoted}">
+                <label for="promoted">Promowanie na stronie głównej?
+                    <input type="checkbox" id="promoted" th:field="*{promoted}">
+                </label>
+
 
                 <label for="poster">Plakat</label>
                 <input type="file" id="poster" th:field="*{poster}" accept="image/png, image/jpg">

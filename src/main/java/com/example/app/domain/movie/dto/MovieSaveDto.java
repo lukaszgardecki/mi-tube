@@ -3,6 +3,7 @@ package com.example.app.domain.movie.dto;
 import org.springframework.web.multipart.MultipartFile;
 
 public class MovieSaveDto {
+    private Long id;
     private String title;
     private String originalTitle;
     private Integer releaseYear;
@@ -12,6 +13,14 @@ public class MovieSaveDto {
     private String genre;
     private boolean promoted;
     private MultipartFile poster;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

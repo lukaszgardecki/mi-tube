@@ -24,6 +24,7 @@
             <form action="#" th:action="@{/admin/edytuj-film}" method="post"
                   enctype="multipart/form-data" class="mc-form invisible"
                   th:each="movie, i : ${movies}" th:object="${movie}" th:id="movie-option- + ${i.index}">
+                <input type="hidden" name="id" th:value="*{id}">
 
                 <label for="title">Tytuł</label>
                 <input type="text" name="title" id="title" placeholder="Przykładowy tytuł" th:value="*{title}">

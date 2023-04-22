@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    color: white;
 }
 
 body {
@@ -55,6 +54,7 @@ a {
 }
 
 .footer {
+    color: #fff;
     padding: 8px;
     text-align: center;
 }
@@ -70,14 +70,17 @@ a {
 .jumbotron-header {
     font-size: 3rem;
     margin: 1rem 0;
+    color: #fff;
 }
 
 .jumbotron-description {
+    color: #fff;
     font-size: 1.2rem;
 }
 
 .list-heading,
 .list-description {
+    color: #fff;
     text-align: center;
     margin: 16px 0;
 }
@@ -235,6 +238,10 @@ textarea {
     margin-top: 8px;
 }
 
+.mc-form label {
+    color: #fff;
+}
+
 .mc-form > input,
 .mc-form > textarea,
 .mc-form > select,
@@ -254,12 +261,12 @@ textarea {
 }
 
 .mc-form > input[type=file] {
-    color: white;
+    color: #fff;
 }
 
 .mc-form > button {
     margin-top:  16px;
-    background-color:  white;
+    background-color:  #fff;
     color: #ffc107;
     border: none;
 }
@@ -278,6 +285,32 @@ textarea {
 .registration-link {
     text-align: center;
     margin-top: 32px;
+}
+
+.pick-movie {
+    display: flex;
+    justify-content: center;
+}
+
+.pick-movie label {
+    font-size: 1.2rem;
+    color: #fff;
+    padding-right: 15px;
+    margin: auto 0;
+}
+
+.pick-movie select {
+    font-size: 1.2rem;
+    width: 61.8%;
+    padding: 8px;
+}
+
+.invisible {
+    display: none;
+}
+
+.poster {
+    margin: auto;
 }
 
 @media only screen and (min-width: 992px) {

@@ -20,7 +20,7 @@ public class GenreManagementController {
     public String addGenreForm(Model model) {
         GenreDto genre = new GenreDto();
         model.addAttribute("genre", genre);
-        return "admin/genre-form";
+        return "admin/genre-add-form";
     }
 
     @PostMapping("/admin/dodaj-gatunek")

@@ -3,6 +3,7 @@ package com.example.app.web.admin;
 import com.example.app.domain.genre.GenreService;
 import com.example.app.domain.genre.genre.GenreDto;
 import com.example.app.domain.movie.MovieService;
+import com.example.app.domain.movie.dto.MovieDto;
 import com.example.app.domain.movie.dto.MovieSaveDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,12 +31,35 @@ public class MovieManagementController {
         MovieSaveDto movie = new MovieSaveDto();
         model.addAttribute("movie", movie);
 
-        return "admin/movie-form";
+        return "admin/movie-add-form";
     }
 
     @PostMapping("/admin/dodaj-film")
     public String addMovie(MovieSaveDto movie, RedirectAttributes redirectAttributes) {
         movieService.addMovie(movie);
+
+        redirectAttributes.addFlashAttribute(
+                AdminController.NOTIFICATION_ATTRIBUTE,
+                "Film %s został zapisany".formatted(movie.getTitle())
+        );
+        return "redirect:/admin";
+    }
+
+    @GetMapping("/admin/edytuj-film")
+    public String editMovieForm(Model model) {
+        List<MovieDto> movies = movieService.findAllMovies();
+        List<GenreDto> allGenres = genreService.findAllGenres();
+
+        model.addAttribute("movies", movies);
+        model.addAttribute("genres", allGenres);
+        return "admin/movie-edit-form";
+    }
+
+    @PostMapping("/admin/edytuj-film")
+    public String editMovie(MovieSaveDto movie, RedirectAttributes redirectAttributes) {
+        System.out.println(movie.getPoster().getOriginalFilename());
+
+        movieService.saveEditedMovie(movie);
 
         redirectAttributes.addFlashAttribute(
                 AdminController.NOTIFICATION_ATTRIBUTE,

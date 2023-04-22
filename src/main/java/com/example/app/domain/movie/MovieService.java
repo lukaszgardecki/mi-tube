@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 @Service
 public class MovieService {
@@ -23,6 +24,12 @@ public class MovieService {
         this.movieRepository = movieRepository;
         this.genreRepository = genreRepository;
         this.fileStorageService = fileStorageService;
+    }
+
+    public List<MovieDto> findAllMovies() {
+        return StreamSupport.stream(movieRepository.findAll().spliterator(), false)
+                .map(MovieMapper::map)
+                .toList();
     }
 
     public List<MovieDto> findAllPromotedMovies() {

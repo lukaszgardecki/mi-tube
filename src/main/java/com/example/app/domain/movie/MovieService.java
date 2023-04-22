@@ -7,8 +7,10 @@ import com.example.app.domain.movie.dto.MovieSaveDto;
 import com.example.app.storage.FileStorageService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.StreamSupport;
 
@@ -50,23 +52,34 @@ public class MovieService {
 
     public void addMovie(MovieSaveDto movieToSave) {
         Movie movie = new Movie();
-        movie.setTitle(movieToSave.getTitle());
-        movie.setOriginalTitle(movieToSave.getOriginalTitle());
-        movie.setPromoted(movieToSave.isPromoted());
-        movie.setReleaseYear(movieToSave.getReleaseYear());
-        movie.setShortDescription(movieToSave.getShortDescription());
-        movie.setDescription(movieToSave.getDescription());
-        movie.setYoutubeTrailerId(movieToSave.getYoutubeTrailerId());
-
-        Genre genre = genreRepository.findByNameIgnoreCase(movieToSave.getGenre()).orElseThrow();
-        movie.setGenre(genre);
-
-        if (movieToSave.getPoster() != null) {
-            String savedFileName = fileStorageService.saveImage(movieToSave.getPoster());
-            movie.setPoster(savedFileName);
-        }
-
+        prepareObjectToSave(movie, movieToSave);
         movieRepository.save(movie);
+    }
+
+    @Transactional
+    public void saveEditedMovie(MovieSaveDto movieToSave) {
+        Movie movieById = movieRepository.findById(movieToSave.getId()).orElseThrow();
+        prepareObjectToSave(movieById, movieToSave);
+    }
+
+    private void prepareObjectToSave(Movie movieToSet, MovieSaveDto movieToGet) {
+        boolean posterIsChanged = !Objects.equals(movieToGet.getPoster().getOriginalFilename(), "")
+                && movieToGet.getPoster() != null;
+        movieToSet.setTitle(movieToGet.getTitle());
+        movieToSet.setOriginalTitle(movieToGet.getOriginalTitle());
+        movieToSet.setPromoted(movieToGet.isPromoted());
+        movieToSet.setReleaseYear(movieToGet.getReleaseYear());
+        movieToSet.setShortDescription(movieToGet.getShortDescription());
+        movieToSet.setDescription(movieToGet.getDescription());
+        movieToSet.setYoutubeTrailerId(movieToGet.getYoutubeTrailerId());
+
+        Genre genre = genreRepository.findByNameIgnoreCase(movieToGet.getGenre()).orElseThrow();
+        movieToSet.setGenre(genre);
+
+        if (posterIsChanged) {
+            String savedFileName = fileStorageService.saveImage(movieToGet.getPoster());
+            movieToSet.setPoster(savedFileName);
+        }
     }
 
     public List<MovieDto> findTopMovies(int size) {

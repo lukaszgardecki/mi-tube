@@ -309,6 +309,10 @@ textarea {
     display: none;
 }
 
+.poster {
+    margin: auto;
+}
+
 @media only screen and (min-width: 992px) {
     /*na ekranie powyżej 992px przycisk do rozwijania menu zostanie ukryty*/
     .menu-toggle {

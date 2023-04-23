@@ -57,13 +57,29 @@ public class MovieManagementController {
 
     @PostMapping("/admin/edytuj-film")
     public String editMovie(MovieSaveDto movie, RedirectAttributes redirectAttributes) {
-        System.out.println(movie.getPoster().getOriginalFilename());
-
         movieService.saveEditedMovie(movie);
 
         redirectAttributes.addFlashAttribute(
                 AdminController.NOTIFICATION_ATTRIBUTE,
                 "Film %s został zapisany".formatted(movie.getTitle())
+        );
+        return "redirect:/admin";
+    }
+
+    @GetMapping("/admin/usun-film")
+    public String deleteMovieForm(Model model) {
+        List<MovieDto> movies = movieService.findAllMovies();
+
+        model.addAttribute("movies", movies);
+        return "admin/movie-delete-form";
+    }
+
+    @PostMapping("/admin/usun-film")
+    public String deleteMovie(Long movieId, RedirectAttributes redirectAttributes) {
+        MovieDto deletedMovie = movieService.deleteMovieById(movieId);
+        redirectAttributes.addFlashAttribute(
+                AdminController.NOTIFICATION_ATTRIBUTE,
+                "Film %s został usunięty".formatted(deletedMovie.getTitle())
         );
         return "redirect:/admin";
     }

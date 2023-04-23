@@ -21,7 +21,7 @@ public class Movie {
     @ManyToOne
     @JoinColumn(name = "genre_id", referencedColumnName = "id")
     private Genre genre;
-    @OneToMany(mappedBy = "movie")
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.REMOVE)
     private Set<Rating> ratings = new HashSet<>();
     private boolean promoted;
     private String poster;

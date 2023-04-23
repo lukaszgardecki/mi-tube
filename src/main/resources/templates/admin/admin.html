@@ -13,10 +13,22 @@
             <p class="notification-bar" th:if="${notification}" th:text="${notification}">Belka z powiadomieniami</p>
             <h2 class="list-heading">Panel administracyjny</h2>
             <ul class="list-border">
-                <li><a href="#" th:href="@{/admin/dodaj-film}">Dodaj film</a></li>
-                <li><a href="#" th:href="@{/admin/dodaj-gatunek}">Dodaj gatunek</a></li>
-                <li><a href="#" th:href="@{/admin/edytuj-film}">Edytuj film</a></li>
-                <li><a href="#" th:href="@{/admin/edytuj-gatunek}">Edytuj gatunek</a></li>
+                <li>
+                    Film
+                    <div>
+                        <a class="btn add" href="#" th:href="@{/admin/dodaj-film}">Dodaj</a>
+                        <a class="btn edit" href="#" th:href="@{/admin/edytuj-film}">Edytuj</a>
+                        <a class="btn delete" href="#" th:href="@{/admin/usun-film}">Usuń</a>
+                    </div>
+                </li>
+                <li>
+                    Gatunek
+                    <div>
+                        <a class="btn add" href="#" th:href="@{/admin/dodaj-gatunek}">Dodaj</a>
+                        <a class="btn edit" href="#" th:href="@{/admin/edytuj-gatunek}">Edytuj</a>
+                        <a class="btn delete" href="#" th:href="@{/admin/usun-gatunek}">Usuń</a>
+                    </div>
+                </li>
             </ul>
         </main>
     </body>

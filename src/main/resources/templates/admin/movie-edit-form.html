@@ -14,11 +14,14 @@
             <h2 class="list-heading">Edytuj film</h2>
 
             <div class="pick-movie">
-                <label>Tytuł</label>
-                <select id="movie-title" required>
-                    <option value="" hidden="">Wybierz film</option>
-                    <option th:each="movie, i : ${movies}" th:value="${i.index}" th:text="${movie.title}"></option>
-                </select>
+                <div>
+                    <label>Tytuł</label>
+                    <select id="movie-title" required>
+                        <option value="" hidden="">Wybierz film</option>
+                        <option th:each="movie, i : ${movies}" th:value="${i.index}" th:text="${movie.title}"></option>
+                    </select>
+                </div>
+
             </div>
 
             <form action="#" th:action="@{/admin/edytuj-film}" method="post"

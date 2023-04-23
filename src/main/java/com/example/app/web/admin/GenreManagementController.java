@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
+
 @Controller
 public class GenreManagementController {
     private final GenreService genreService;
@@ -26,6 +28,26 @@ public class GenreManagementController {
     @PostMapping("/admin/dodaj-gatunek")
     public String addGenre(GenreDto genre, RedirectAttributes redirectAttributes) {
         genreService.addGenre(genre);
+        redirectAttributes.addFlashAttribute(
+                AdminController.NOTIFICATION_ATTRIBUTE,
+                "Gatunek %s został zapisany".formatted(genre.getName())
+        );
+        return "redirect:/admin";
+    }
+
+    @GetMapping("/admin/edytuj-gatunek")
+    public String editGenreForm(Model model) {
+        List<GenreDto> allGenres = genreService.findAllGenres();
+
+        model.addAttribute("allGenres", allGenres);
+        return "admin/genre-edit-form";
+    }
+
+    @PostMapping("/admin/edytuj-gatunek")
+    public String editGenre(GenreDto genre, RedirectAttributes redirectAttributes) {
+
+        // TODO: 23.04.2023 metoda z servisu eydtująca gatunek
+        genreService.saveEditedGenre(genre);
         redirectAttributes.addFlashAttribute(
                 AdminController.NOTIFICATION_ATTRIBUTE,
                 "Gatunek %s został zapisany".formatted(genre.getName())

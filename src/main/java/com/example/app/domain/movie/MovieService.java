@@ -62,6 +62,16 @@ public class MovieService {
         prepareObjectToSave(movieById, movieToSave);
     }
 
+    @Transactional
+    public MovieDto deleteMovieById(Long id) {
+        Movie movie = movieRepository.findById(id).orElseThrow();
+        MovieDto movieToDelete = MovieMapper.map(movie);
+
+        movieRepository.deleteById(movieToDelete.getId());
+        fileStorageService.deleteImage(movie.getPoster());
+        return movieToDelete;
+    }
+
     private void prepareObjectToSave(Movie movieToSet, MovieSaveDto movieToGet) {
         boolean posterIsChanged = !Objects.equals(movieToGet.getPoster().getOriginalFilename(), "")
                 && movieToGet.getPoster() != null;

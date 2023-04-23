@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -34,6 +35,11 @@ public class FileStorageService {
 
     public String saveFile(MultipartFile file) {
         return saveFile(file, fileStorageLocation);
+    }
+
+    public void deleteImage(String fileName) {
+        File file = new File(imageStorageLocation + fileName);
+        file.delete();
     }
 
 
@@ -69,5 +75,4 @@ public class FileStorageService {
         } while (Files.exists(filePath));
         return filePath;
     }
-
 }

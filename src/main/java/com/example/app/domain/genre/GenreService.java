@@ -30,8 +30,18 @@ public class GenreService {
     @Transactional
     public void addGenre(GenreDto genre) {
         Genre genreToSave = new Genre();
-        genreToSave.setName(genre.getName());
-        genreToSave.setDescription(genre.getDescription());
+        prepareGenreToSave(genreToSave, genre);
         genreRepository.save(genreToSave);
+    }
+
+    @Transactional
+    public void saveEditedGenre(GenreDto genre) {
+        Genre genreById = genreRepository.findById(genre.getId()).orElseThrow();
+        prepareGenreToSave(genreById, genre);
+    }
+
+    private void prepareGenreToSave(Genre genreToSet, GenreDto genreToGet) {
+        genreToSet.setName(genreToGet.getName());
+        genreToSet.setDescription(genreToGet.getDescription());
     }
 }

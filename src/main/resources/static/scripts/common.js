@@ -1,5 +1,9 @@
 const toggle = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".menu");
+const selectedGenre= document.querySelector("#genre-name");
+const selectedTitle = document.querySelector("#movie-title");
+let previousSelectedMovieForm;
+let previousSelectedGenreForm;
 
 function toggleMenu() {
     if (menu.classList.contains("expanded")) {
@@ -12,19 +16,30 @@ function toggleMenu() {
 }
 toggle.addEventListener('click', toggleMenu, false);
 
-let previousSelectedForm;
-const selectedTitle = document.getElementById("movie-title");
-selectedTitle.addEventListener("change", () => {
 
+if (selectedTitle != null) {
+    selectedTitle.addEventListener("change", (e) => displayMovieForm());
+}
+if (selectedGenre != null) {
+    selectedGenre.addEventListener("change", () => displayGenreForm());
+}
+
+function displayMovieForm() {
     let movie_index = selectedTitle.value;
     let movie_form = document.getElementById('movie-option-' + movie_index);
-
-    if (previousSelectedForm != null) {
-        previousSelectedForm.classList.add('invisible');
-        previousSelectedForm = movie_form;
-        movie_form.classList.remove('invisible');
-    } else {
-        previousSelectedForm = movie_form;
-        movie_form.classList.remove('invisible');
+    if (previousSelectedMovieForm != null) {
+        previousSelectedMovieForm.classList.add('invisible');
     }
-});
+    movie_form.classList.remove('invisible');
+    previousSelectedMovieForm = movie_form;
+}
+function displayGenreForm() {
+    let genre_index = selectedGenre.value;
+    let genre_form = document.getElementById('genre-option-' + genre_index);
+    if (previousSelectedGenreForm != null) {
+        previousSelectedGenreForm.classList.add('invisible');
+    }
+    genre_form.classList.remove('invisible');
+    previousSelectedGenreForm = genre_form;
+
+}

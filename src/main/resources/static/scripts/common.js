@@ -3,9 +3,11 @@ const menu = document.querySelector(".menu");
 const selectedGenre= document.querySelector("#genre-name");
 const selectedTitle = document.querySelector("#movie-title");
 const selectedDelMovie = document.querySelector("#movie-del-title");
+const selectedDelGenre = document.querySelector("#genre-del-name");
 let previousSelectedMovieForm;
 let previousSelectedGenreForm;
 let previousSelectedDelMovieForm;
+let previousSelectedDelGenreForm;
 
 function toggleMenu() {
     if (menu.classList.contains("expanded")) {
@@ -28,6 +30,10 @@ if (selectedGenre != null) {
 
 if (selectedDelMovie != null) {
     selectedDelMovie.addEventListener("change", () => displayMoviePreview());
+}
+
+if (selectedDelGenre != null) {
+    selectedDelGenre.addEventListener("change", () => displayGenrePreview());
 }
 
 function displayMovieForm() {
@@ -57,4 +63,14 @@ function displayMoviePreview() {
     }
     movieToDeletePreview.classList.remove('invisible');
     previousSelectedDelMovieForm = movieToDeletePreview;
+}
+
+function displayGenrePreview() {
+    let genreToDeleteIndex = selectedDelGenre.value - 1;
+    let genreToDeletePreview = document.getElementById('genre-del-option-' + genreToDeleteIndex);
+    if (previousSelectedDelGenreForm != null) {
+        previousSelectedDelGenreForm.classList.add('invisible');
+    }
+    genreToDeletePreview.classList.remove('invisible');
+    previousSelectedDelGenreForm = genreToDeletePreview;
 }

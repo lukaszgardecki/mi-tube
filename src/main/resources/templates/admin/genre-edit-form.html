@@ -14,11 +14,13 @@
             <h2 class="list-heading">Edytuj gatunek</h2>
 
             <div class="pick-movie">
-                <label>Gatunek</label>
-                <select id="genre-name" required>
-                    <option value="" hidden="">Wybierz gatunek</option>
-                    <option th:each="genre, i : ${allGenres}" th:value="${i.index}" th:text="${genre.name}"></option>
-                </select>
+                <div>
+                    <label>Gatunek</label>
+                    <select id="genre-name" required>
+                        <option value="" hidden="">Wybierz gatunek</option>
+                        <option th:each="genre, i : ${allGenres}" th:value="${i.index}" th:text="${genre.name}"></option>
+                    </select>
+                </div>
             </div>
 
             <form action="#" th:action="@{/admin/edytuj-gatunek}" method="post"

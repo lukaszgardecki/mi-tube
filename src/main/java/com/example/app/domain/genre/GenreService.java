@@ -40,6 +40,17 @@ public class GenreService {
         prepareGenreToSave(genreById, genre);
     }
 
+    @Transactional
+    public GenreDto deleteGenreById(Long id) {
+        Genre genre = genreRepository.findById(id).orElseThrow();
+        GenreDto genreToDelete = GenreMapper.map(genre);
+
+        genre.getMovies().forEach(m -> m.setGenre(null));
+
+        genreRepository.deleteById(genreToDelete.getId());
+        return genreToDelete;
+    }
+
     private void prepareGenreToSave(Genre genreToSet, GenreDto genreToGet) {
         genreToSet.setName(genreToGet.getName());
         genreToSet.setDescription(genreToGet.getDescription());

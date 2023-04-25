@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+
+    <changeSet id="0005-1" author="lukasz">
+
+        <createTable tableName="genre_movies">
+
+            <column name="movie_id" type="BIGINT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_genre_movies_movie_id"
+                             referencedTableName="movie"
+                             referencedColumnNames="id"
+                             primaryKey="true"
+                             primaryKeyName="pk_genre_movies"
+                             unique="true"
+                />
+            </column>
+            <column name="genre_id" type="BIGINT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_genre_movies_genre_id"
+                             referencedTableName="genre"
+                             referencedColumnNames="id"
+                             primaryKey="true"
+                             primaryKeyName="pk_genre_movies"
+                />
+            </column>
+
+        </createTable>
+    </changeSet>
+
+
+</databaseChangeLog>

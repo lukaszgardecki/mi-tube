@@ -53,6 +53,9 @@ public class MovieService {
     public void addMovie(MovieSaveDto movieToSave) {
         Movie movie = new Movie();
         prepareObjectToSave(movie, movieToSave);
+        String genre = movieToSave.getGenre();
+        Genre genre1 = genreRepository.findByNameIgnoreCase(genre).orElseThrow();
+        genre1.getMovies().add(movie);
         movieRepository.save(movie);
     }
 
@@ -66,7 +69,8 @@ public class MovieService {
     public MovieDto deleteMovieById(Long id) {
         Movie movie = movieRepository.findById(id).orElseThrow();
         MovieDto movieToDelete = MovieMapper.map(movie);
-
+        Genre genre = movie.getGenre();
+        genre.getMovies().remove(movie);
         movieRepository.deleteById(movieToDelete.getId());
         fileStorageService.deleteImage(movie.getPoster());
         return movieToDelete;

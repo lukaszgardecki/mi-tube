@@ -20,7 +20,7 @@ toggle.addEventListener('click', toggleMenu, false);
 
 
 if (selectedTitle != null) {
-    selectedTitle.addEventListener("change", (e) => displayMovieForm());
+    selectedTitle.addEventListener("change", () => displayMovieForm());
 }
 if (selectedGenre != null) {
     selectedGenre.addEventListener("change", () => displayGenreForm());

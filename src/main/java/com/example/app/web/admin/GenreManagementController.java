@@ -45,12 +45,27 @@ public class GenreManagementController {
 
     @PostMapping("/admin/edytuj-gatunek")
     public String editGenre(GenreDto genre, RedirectAttributes redirectAttributes) {
-
-        // TODO: 23.04.2023 metoda z servisu eydtująca gatunek
         genreService.saveEditedGenre(genre);
         redirectAttributes.addFlashAttribute(
                 AdminController.NOTIFICATION_ATTRIBUTE,
                 "Gatunek %s został zapisany".formatted(genre.getName())
+        );
+        return "redirect:/admin";
+    }
+
+    @GetMapping("/admin/usun-gatunek")
+    public String deleteGenreForm(Model model) {
+        List<GenreDto> allGenres = genreService.findAllGenres();
+        model.addAttribute("allGenres", allGenres);
+        return "admin/genre-delete-form";
+    }
+
+    @PostMapping("/admin/usun-gatunek")
+    public String deleteGenre(Long genreId, RedirectAttributes redirectAttributes) {
+        GenreDto deletedGenre = genreService.deleteGenreById(genreId);
+        redirectAttributes.addFlashAttribute(
+                AdminController.NOTIFICATION_ATTRIBUTE,
+                "Gatunek %s został usunięty".formatted(deletedGenre.getName())
         );
         return "redirect:/admin";
     }

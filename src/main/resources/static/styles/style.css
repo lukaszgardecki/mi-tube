@@ -367,6 +367,35 @@ textarea {
     margin: auto;
 }
 
+.genre-preview {
+    width: inherit;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.genre-preview .genre-preview-description,
+.genre-preview .genre-preview-name {
+    display: flex;
+}
+
+
+.genre-preview .genre-preview-name > *,
+.genre-preview .genre-preview-description > * {
+    display: flex;
+    padding: 7px;
+}
+
+.genre-preview .genre-preview-name .name-text,
+.genre-preview .genre-preview-description .desc-text {
+    width: 90px;
+}
+.genre-preview .genre-preview-name .name-value,
+.genre-preview .genre-preview-description .desc-value {
+    width: 100%;
+}
+
+
+
 @media only screen and (min-width: 992px) {
     /*na ekranie powyżej 992px przycisk do rozwijania menu zostanie ukryty*/
     .menu-toggle {

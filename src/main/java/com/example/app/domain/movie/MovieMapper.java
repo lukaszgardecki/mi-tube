@@ -13,6 +13,8 @@ public class MovieMapper {
                 .average().orElse(0);
         int ratingCount = movie.getRatings().size();
 
+        String trailerFullLink = "https://www.youtube.com/watch?v=%s".formatted(movie.getYoutubeTrailerId());
+
         return new MovieDto(
                 movie.getId(),
                 movie.getTitle(),
@@ -20,7 +22,7 @@ public class MovieMapper {
                 movie.getReleaseYear(),
                 movie.getShortDescription(),
                 movie.getDescription(),
-                movie.getYoutubeTrailerId(),
+                trailerFullLink,
                 movie.getGenre().getName(),
                 movie.isPromoted(),
                 movie.getPoster(),

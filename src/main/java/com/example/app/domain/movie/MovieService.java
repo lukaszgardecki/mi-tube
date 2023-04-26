@@ -98,9 +98,9 @@ public class MovieService {
     }
 
     private String prepareYTTrailerId(String youtubeTrailer) {
-        int idLen = 12;
+        int idLen = 11;
         int idStart = youtubeTrailer.indexOf("=")+1;
-        int idEnd = idStart + idLen - 1;
+        int idEnd = idStart + idLen;
         return youtubeTrailer.substring(idStart, idEnd);
     }
 

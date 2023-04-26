@@ -85,7 +85,8 @@ public class MovieService {
         movieToSet.setReleaseYear(movieToGet.getReleaseYear());
         movieToSet.setShortDescription(movieToGet.getShortDescription());
         movieToSet.setDescription(movieToGet.getDescription());
-        movieToSet.setYoutubeTrailerId(movieToGet.getYoutubeTrailerId());
+        String youtubeTrailerId = prepareYTTrailerId(movieToGet.getYoutubeTrailer());
+        movieToSet.setYoutubeTrailerId(youtubeTrailerId);
 
         Genre genre = genreRepository.findByNameIgnoreCase(movieToGet.getGenre()).orElseThrow();
         movieToSet.setGenre(genre);
@@ -94,6 +95,13 @@ public class MovieService {
             String savedFileName = fileStorageService.saveImage(movieToGet.getPoster());
             movieToSet.setPoster(savedFileName);
         }
+    }
+
+    private String prepareYTTrailerId(String youtubeTrailer) {
+        int idLen = 12;
+        int idStart = youtubeTrailer.indexOf("=")+1;
+        int idEnd = idStart + idLen - 1;
+        return youtubeTrailer.substring(idStart, idEnd);
     }
 
     public List<MovieDto> findTopMovies(int size) {

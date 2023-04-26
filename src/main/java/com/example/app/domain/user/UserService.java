@@ -31,7 +31,7 @@ public class UserService {
         UserRole defaultRole = userRoleRepository.findByName(DEFAULT_USER_ROLE).orElseThrow();
         User user = new User();
         user.setEmail(userRegistration.getEmail());
-        user.setPasword(passwordEncoder.encode(userRegistration.getPassword()));
+        user.setPassword(passwordEncoder.encode(userRegistration.getPassword()));
         user.getRoles().add(defaultRole);
         userRepository.save(user);
     }

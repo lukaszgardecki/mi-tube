@@ -85,7 +85,7 @@ public class MovieService {
         movieToSet.setReleaseYear(movieToGet.getReleaseYear());
         movieToSet.setShortDescription(movieToGet.getShortDescription());
         movieToSet.setDescription(movieToGet.getDescription());
-        movieToSet.setYoutubeTrailerId(movieToGet.getYoutubeTrailerId());
+        movieToSet.setYoutubeTrailerId(movieToGet.getYoutubeTrailer());
 
         Genre genre = genreRepository.findByNameIgnoreCase(movieToGet.getGenre()).orElseThrow();
         movieToSet.setGenre(genre);

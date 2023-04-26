@@ -3,9 +3,15 @@ package com.example.app.domain.rating;
 import com.example.app.domain.movie.Movie;
 import com.example.app.domain.user.User;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "movie_rating")
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,45 +23,4 @@ public class Rating {
     @JoinColumn(name = "movie_id")
     private Movie movie;
     private Integer rating;
-
-    public Rating() {
-    }
-
-    public Rating(User user, Movie movie, Integer rating) {
-        this.user = user;
-        this.movie = movie;
-        this.rating = rating;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Movie getMovie() {
-        return movie;
-    }
-
-    public void setMovie(Movie movie) {
-        this.movie = movie;
-    }
-
-    public Integer getRating() {
-        return rating;
-    }
-
-    public void setRating(Integer rating) {
-        this.rating = rating;
-    }
 }

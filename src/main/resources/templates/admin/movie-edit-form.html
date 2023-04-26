@@ -49,7 +49,8 @@
                 </label>
 
                 <label for="trailer">Trailer (link YouTube)</label>
-                <input type="text" name="youtubeTrailer" id="trailer" placeholder="np. https://www.youtube.com/watch?v=5xM9XXyf8_I" th:value="*{youtubeTrailer}">
+                <input type="text" name="youtubeTrailer" id="trailer" placeholder="np. https://www.youtube.com/watch?v=5xM9XXyf8_I"
+                       th:value="|https://www.youtube.com/watch?v=*{youtubeTrailer}|">
 
                 <label for="poster">Plakat</label>
                 <input type="file" name="poster" id="poster" accept="image/png, image/jpg">

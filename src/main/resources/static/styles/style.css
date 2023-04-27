@@ -1,6 +1,10 @@
 
 :root {
-    --navbar-log-in-icon: 1.4rem;
+    --navbar-logo-icon-size: 4rem;
+    --navbar-logo-font-size: 2rem;
+    --navbar-item-log-icon: 1.4rem;
+    --navbar-item-font-size: 1 rem;
+    --navbar-item-hover-font-size: 1.05rem;
 
     --preview-card-title-font-size: 1.6rem;
     --preview-card-header-font-size: 1.6rem;
@@ -42,7 +46,6 @@ a {
     flex: 1;
 }
 
-.logo,
 #toggle-icon {
     color: var(--second-text-color);
 }
@@ -65,10 +68,16 @@ a {
     display: flex;
     text-align: center;
     justify-content: center;
+    font-size: var(--navbar-item-font-size);
+    transition: 0.5s font-size ease;
+}
+
+.menu-item a:hover {
+    font-size: var(--navbar-item-hover-font-size);
 }
 
 .menu-item a ion-icon {
-    font-size: var(--navbar-log-in-icon);
+    font-size: var(--navbar-item-log-icon);
     padding-right: 3px;
 }
 
@@ -76,11 +85,46 @@ a {
     display: block;
 }
 
-.menu-logo-container,
+.menu-logo-container {
+    display: block;
+    padding: 16px 32px;
+    font-size: var(--navbar-logo-font-size);
+}
+
+.menu-logo-container a {
+    display: flex;
+}
+
+.menu-logo-container a .logo {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.menu-logo-container a .logo ion-icon {
+    font-size: var(--navbar-logo-icon-size);
+    padding-top: 8px;
+}
+
+.menu-logo-container a .logo span {
+    font-size: var(--navbar-logo-font-size);
+    font-weight: 400;
+    color: #000;
+    margin: auto;
+    position: absolute;
+}
+
+.menu-logo-container a .text {
+    font-weight: 500;
+    display: flex;
+    margin: auto 0;
+    padding-left: 5px;
+}
+
 .menu-toggle {
     display: block;
     padding: 16px 32px;
-    font-size: 20px;
+    font-size: var(--navbar-logo-font-size);
 }
 
 .footer {

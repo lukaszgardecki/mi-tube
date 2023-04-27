@@ -6,7 +6,7 @@
 >
     <head>
         <meta charset="UTF-8">
-        <title>MovieClub</title>
+        <title>MI Tube</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -24,7 +24,11 @@
             <ul class="menu">
                 <li class="menu-logo-container">
                     <a href="#" th:href="@{/}">
-                        <i class="fas fa-film logo"></i> MovieClub
+                        <span class="logo">
+                            <ion-icon name="tv"></ion-icon>
+                            <span>MI</span>
+                        </span>
+                        <span class="text">Tube</span>
                     </a>
                 </li>
                 <li class="menu-toggle"><a href="#"><i id="toggle-icon" class="far fa-plus-square"></i></a></li>
@@ -47,7 +51,7 @@
             </ul>
 
             <header class="jumbotron">
-                <h1 class="jumbotron-header">Movie Club</h1>
+                <h1 class="jumbotron-header">MI Tube</h1>
                 <p class="jumbotron-description">
                   Witaj w najlepszej bazie filmów w sieci. Oceniaj i dyskutuj o najnowszych produkcjach i klasykach kina.
                 </p>
@@ -56,7 +60,7 @@
             <main class="main-content" layout:fragment="content"></main>
 
             <footer class="footer">
-                <p>MovieClub 2023 <i class="fas fa-copyright"></i></p>
+                <p>MI Tube 2023 <i class="fas fa-copyright"></i></p>
             </footer>
         </div>
 

@@ -31,7 +31,7 @@
                                 <p th:text="${movie.releaseYear}">1994</p>
                             </div>
                             <div class="movie-list-item-rating">
-                                <i class="fas fa-star"></i>
+                                <ion-icon name="star" class="star"></ion-icon>
                                 <span th:if="${movie.ratingCount}" th:text="${#numbers.formatDecimal(movie.avgRating, 1, 1)}">6.5</span>
                                 <span th:if=" !${movie.ratingCount}">Brak ocen</span>
                             </div>

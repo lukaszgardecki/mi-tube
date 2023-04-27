@@ -49,7 +49,7 @@
                             <input type="hidden" name="movieId" th:value="${movie.id}">
                             <div class="movie-rating-buttons">
                                 <button class="movie-rating-button" name="rating" th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i}">
-                                    <i class="fa-star" th:classappend="${i <= userRating ? 'fa-solid' : 'fa-regular'}"></i>
+                                    <ion-icon name="star" th:name="${i <= userRating ? 'star' : 'star-outline'}"></ion-icon>
                                 </button>
                             </div>
                         </form>

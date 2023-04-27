@@ -27,8 +27,6 @@ public class MovieController {
     public String getMovie(@PathVariable long id, Model model, Authentication authentication) {
         MovieDto movie = movieService.findMovieById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-
-        System.out.println(movie.getYoutubeTrailer());
         model.addAttribute("movie", movie);
 
         if (authentication != null) {

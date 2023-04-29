@@ -82,10 +82,13 @@ function getCurrentYear() {
    return new Date().getFullYear().toString();
 }
 
-posterInput.onchange = () => {
-    const [file] = posterInput.files;
-    if (file) {
-        let image = document.querySelector(".poster-preview img");
-        image.src = URL.createObjectURL(file);
-    }
-};
+if (posterInput != null) {
+    posterInput.onchange = () => {
+        const [file] = posterInput.files;
+        if (file) {
+            let image = document.querySelector(".poster-preview img");
+            image.src = URL.createObjectURL(file);
+        }
+    };
+}
+

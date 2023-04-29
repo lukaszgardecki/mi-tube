@@ -9,19 +9,27 @@
         <title>Zarejestruj się</title>
     </head>
     <body>
-        <main class="main-content" layout:fragment="content">
-            <h2 class="list-heading">Zarejestruj się</h2>
-            <form action="#" th:action=" @{/rejestracja}" method="post" class="mc-form" th:object="${user}">
-
-                <label for="email">Adres email</label>
-                <input id="email" type="email" name="email" placeholder="nazwa użytkownika" th:field="*{email}">
-
-                <label for="password">Hasło</label>
-                <input id="password" type="password" name="password" placeholder="hasło" th:field="*{password}">
-
-                <button type="submit">Zarejestruj się</button>
-            </form>
+        <main class="wrapper" layout:fragment="content">
+            <div class="form-wrapper sign-up">
+                <form action="#" th:action=" @{/rejestracja}" method="post" class="" th:object="${user}">
+                    <h2>Zarejestruj się</h2>
+                    <div class="input-group">
+                        <input type="email" name="email"  th:field="*{email}" required>
+                        <label>Adres email</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="password" th:field="*{password}" required>
+                        <label>Hasło</label>
+                    </div>
+                    <div class="remember">
+                        <label><input type="checkbox"> Akceptuję warunki regulaminu i politykę prywatności</label>
+                    </div>
+                    <button type="submit">Zarejestruj się</button>
+                    <div class="signUp-link">
+                        <p>Masz już konto? <a href="#" th:href=" @{/login}" class="signInBtn-link">Zaloguj się</a></p>
+                    </div>
+                </form>
+            </div>
         </main>
-
     </body>
 </html>

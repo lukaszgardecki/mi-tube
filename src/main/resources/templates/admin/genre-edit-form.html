@@ -9,33 +9,36 @@
         <title>Edytuj gatunek filmowy</title>
     </head>
     <body>
-        <main class="main-content" layout:fragment="content">
+        <main class="wrapper" layout:fragment="content">
+            <h2>Edytuj gatunek</h2>
 
-            <h2 class="list-heading">Edytuj gatunek</h2>
-
-            <div class="pick-movie">
-                <div>
-                    <label>Gatunek</label>
-                    <select id="genre-name" required>
-                        <option value="" hidden="">Wybierz gatunek</option>
-                        <option th:each="genre, i : ${allGenres}" th:value="${i.index}" th:text="${genre.name}"></option>
-                    </select>
-                </div>
+            <div class="input-group">
+                <select id="genre-name" required>
+                    <option value="" hidden=""></option>
+                    <option th:each="genre, i : ${allGenres}" th:value="${i.index}" th:text="${genre.name}"></option>
+                </select>
+                <label>Wybierz gatunek</label>
             </div>
+            <div class="form-wrapper">
 
-            <form action="#" th:action="@{/admin/edytuj-gatunek}" method="post"
-                  class="mc-form invisible" th:each="genre, i : ${allGenres}" th:object="${genre}" th:id="genre-option- + ${i.index}">
+                <form action="#" th:action="@{/admin/edytuj-gatunek}"
+                      method="post" class="invisible" th:each="genre, i : ${allGenres}"
+                      th:object="${genre}" th:id="genre-option- + ${i.index}">
 
-                <input type="hidden" name="id" th:value="*{id}">
+                    <input type="hidden" name="id" th:value="*{id}">
 
-                <label for="genreName">Nazwa</label>
-                <input type="text" name="name" id="genreName" maxlength="100" placeholder="np.Horror" th:value="*{name}">
+                    <div class="input-group">
+                        <input type="text" name="name" th:value="*{name}" maxlength="100" required>
+                        <label>Nazwa</label>
+                    </div>
 
-                <label for="movieShortDescription">Opis - max 500 znaków</label>
-                <textarea name="description" id="movieShortDescription" rows="5" maxlength="500" th:text="*{description}"></textarea>
-
-                <button type="submit">Zapisz</button>
-            </form>
+                    <div class="textarea-group">
+                        <textarea name="description" rows="5" th:text="*{description}" maxlength="500" required></textarea>
+                        <label>Opis - max 500 znaków</label>
+                    </div>
+                    <button type="submit">Zapisz</button>
+                </form>
+            </div>
         </main>
     </body>
 </html>

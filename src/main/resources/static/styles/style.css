@@ -420,6 +420,7 @@ textarea {
     width:  calc(100% - 2 * var(--admin-textarea-padding) - 2 * 1px) ;
     border-top: 1px solid #6d6d6d;
     border-bottom: 2px solid var(--main-text-color);
+    border-radius: 5px;
     background-color: transparent;
     color: var(--main-text-color);
     padding: var(--admin-textarea-padding);

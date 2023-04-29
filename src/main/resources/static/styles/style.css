@@ -1,10 +1,9 @@
 
 :root {
-    --navbar-logo-icon-size: 4rem;
-    --navbar-logo-font-size: 2rem;
+    --navbar-logo-icon-size: 3.5rem;
+    --navbar-logo-font-size: 1.5rem;
     --navbar-item-log-icon: 1.4rem;
     --navbar-item-font-size: 1 rem;
-    --navbar-item-hover-font-size: 1.05rem;
 
     --preview-card-title-font-size: 1.6rem;
     --preview-card-header-font-size: 1.6rem;
@@ -58,10 +57,11 @@ a {
 
 .menu-item {
     width: 100%;
-    padding: 16px;
+    padding: 5px 16px;
     border-bottom: 1px var(--preview-card-border-color) solid;
     text-align: center;
     display: none;
+    margin: auto;
 }
 
 .menu-item a {
@@ -69,11 +69,7 @@ a {
     text-align: center;
     justify-content: center;
     font-size: var(--navbar-item-font-size);
-    transition: 0.5s font-size ease;
-}
-
-.menu-item a:hover {
-    font-size: var(--navbar-item-hover-font-size);
+    padding: 5px;
 }
 
 .menu-item a ion-icon {
@@ -87,7 +83,7 @@ a {
 
 .menu-logo-container {
     display: block;
-    padding: 16px 32px;
+    padding: 5px 32px;
     font-size: var(--navbar-logo-font-size);
 }
 
@@ -344,8 +340,10 @@ textarea {
 
 .mc-form {
     display: flex;
+    width: 400px;
+
     flex-direction: column;
-    margin: 0 32px;
+    margin: 0 auto;
 }
 
 .mc-form > * {
@@ -397,6 +395,7 @@ textarea {
 }
 
 .registration-link {
+    color: var(--main-text-color);
     text-align: center;
     margin-top: 32px;
 }
@@ -484,6 +483,31 @@ textarea {
         display: block;
         width: auto;
         border-bottom: 0;
+    }
+
+    .menu-item a {
+        position: relative;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .menu-item a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        background: var(--second-text-color);
+        border-radius: 5px;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: .5s;
+    }
+
+    .menu-item a:hover::after {
+        transform-origin: left;
+        transform: scaleX(1);
     }
 
     .menu-logo-container {

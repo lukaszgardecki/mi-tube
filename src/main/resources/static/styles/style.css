@@ -344,8 +344,8 @@ textarea {
 .wrapper {
     position: relative;
     margin: auto;
-    width: 350px;
-    height: 450px;
+    min-width: 350px;
+    min-height: 450px;
     background: #000;
     box-shadow: 0 0 50px var(--second-text-color);
     border-radius: 20px;
@@ -355,8 +355,6 @@ textarea {
 
 .wrapper.add-film {
     margin: 30px auto;
-    height: auto;
-    width: auto;
 }
 
 .wrapper > .input-group select {

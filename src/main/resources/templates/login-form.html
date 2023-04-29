@@ -10,16 +10,16 @@
     </head>
     <body>
         <main class="wrapper" layout:fragment="content">
-            <div class="form-wrapper sign-in">
+            <div class="form-wrapper">
                 <form action="#" th:action=" @{/login}" method="post">
                     <h2>Zaloguj się</h2>
 
                     <p th:if="${param.error}"
                        th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"
-                       class="mc-form-message">
+                       class="form-message">
                         Błąd logowania
                     </p>
-                    <p th:if="${param.logout}" class="mc-form-message">Zostałeś wylogowany, możesz zalogować się ponownie.</p>
+                    <p th:if="${param.logout}" class="form-message">Zostałeś wylogowany, możesz zalogować się ponownie.</p>
 
                     <div class="input-group">
                         <input type="email" name="username" required>

@@ -16,9 +16,9 @@
     --movie-original-title-color: #9e9e9e;
 
     --admin-textarea-padding: 7px;
-    --admin-button-add-color: #a8e86b;
-    --admin-button-edit-color: #4e6ae1;
-    --admin-button-remove-color: #fc3c3c;
+    --admin-button-add-color: rgba(40, 154, 2, 0.35);
+    --admin-button-edit-color: rgba(62, 97, 241, 0.35);
+    --admin-button-remove-color: rgba(255, 0, 0, 0.35);
 }
 
 * {
@@ -311,11 +311,13 @@ a {
 }
 
 .list-border > li .btn {
-    color: #000;
+    color: var(--second-text-color);
     width: 5rem;
     padding: 7px 15px;
     border-radius: 10px;
     margin: 5px;
+    background-color: transparent;
+    border: 1px solid var(--second-text-color);
 }
 
 .list-border > li div {
@@ -323,16 +325,17 @@ a {
     flex-wrap: wrap;
 }
 
-.add {
-    background-color: var(--admin-button-add-color);
+.list-border > li .btn.add:hover {
+    background-image: linear-gradient(to bottom right, rgba(40, 154, 2, 0.35), rgba(255, 193, 7, 0.4));
 }
 
-.edit {
-    background-color: var(--admin-button-edit-color);
+.list-border > li .btn.edit:hover {
+    background-image: linear-gradient(to bottom right, rgba(62, 97, 241, 0.35), rgba(255, 193, 7, 0.4));
+
 }
 
-.delete {
-    background-color: var(--admin-button-remove-color);
+.list-border > li .btn.delete:hover {
+    background-image: linear-gradient(to bottom right, rgba(255, 0, 0, 0.35), rgba(255, 193, 7, 0.4));
 }
 
 textarea {

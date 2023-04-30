@@ -357,6 +357,11 @@ textarea {
     margin: 30px auto;
 }
 
+.wrapper.delete-genre {
+    margin: 30px auto;
+    height: auto;
+}
+
 .wrapper > .input-group select {
     width: 100%;
 }
@@ -671,6 +676,52 @@ input[type="file"] {
 .genre-preview .genre-preview-name .name-value,
 .genre-preview .genre-preview-description .desc-value {
     width: 100%;
+}
+
+.delete-genre table {
+    margin-top: 30px;
+    color: var(--main-text-color);
+    border-collapse: collapse;
+}
+
+.delete-genre table th {
+    padding: 5px;
+    background-color: rgba(255, 193, 7, 0.5);
+    border: 1px solid var(--second-text-color);
+}
+
+.delete-genre table td {
+    border: 1px solid var(--second-text-color);
+}
+
+.delete-genre table .name-col {
+    padding: 5px;
+    width: 200px;
+}
+
+.delete-genre table .desc-col {
+    padding: 5px;
+    width: 500px;
+    border-right: none;
+}
+
+.delete-genre table .btn-col {
+    width: 100px;
+    border-left: none;
+}
+
+.delete-genre table .btn-col button {
+    margin: auto;
+    display: flex;
+    padding: 3px 15px;
+    border: 1px solid var(--second-text-color);
+    color: var(--main-text-color);
+    background-color: transparent;
+    border-radius: 7px;
+}
+
+.delete-genre table .btn-col button:hover {
+    background-color: rgba(255, 193, 7, 0.5);
 }
 
 

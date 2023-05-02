@@ -6,7 +6,7 @@
 >
     <head>
         <meta charset="UTF-8">
-        <title>Dodaj nowy film</title>
+        <title>Add new movie</title>
     </head>
     <body>
 
@@ -14,17 +14,17 @@
             <div class="form-wrapper">
                 <form action="#" th:action="@{/admin/dodaj-film}" enctype="multipart/form-data" method="post" th:object="${movie}">
 
-                    <h2>Dodaj nowy film</h2>
+                    <h2>Add new movie</h2>
 
                     <div class="row">
                         <div class="input-group">
                             <input type="text" th:field="*{title}" required>
-                            <label>Tytuł</label>
+                            <label>Title</label>
                         </div>
 
                         <div class="input-group">
                             <input type="text" th:field="*{originalTitle}" required>
-                            <label>Tytuł oryginalny</label>
+                            <label>Original title</label>
                         </div>
                     </div>
 
@@ -33,7 +33,7 @@
                             <input type="number" min="1" pattern="\d*"
                                    oninput="this.value > getCurrentYear() ? this.value = getCurrentYear() : this.value = this.value.slice(0, this.maxLength)"
                                    maxlength="4" th:field="*{releaseYear}" required>
-                            <label>Rok premiery</label>
+                            <label>Release year</label>
                         </div>
 
                         <div class="input-group">
@@ -41,11 +41,11 @@
                                 <option value="" hidden=""></option>
                                 <option th:each="genre : ${genres}" th:value="${genre.name}" th:text="${genre.name}"></option>
                             </select>
-                            <label>Wybierz gatunek</label>
+                            <label>Choose movie genre</label>
                         </div>
 
                         <div class="promoted">
-                            <label><input type="checkbox" th:field="*{promoted}"> Promowanie na stronie głównej?</label>
+                            <label><input type="checkbox" th:field="*{promoted}"> Promoted?</label>
                         </div>
                     </div>
 
@@ -53,9 +53,9 @@
                         <div class="trailer-poster">
                             <div class="input-group youtube-trailer">
                                 <input type="text" th:field="*{youtubeTrailer}" required>
-                                <label>Trailer (link YouTube)</label>
+                                <label>Trailer (YouTube link)</label>
                             </div>
-                            <label class="custom-file-upload">Wybierz plakat<input type="file" th:field="*{poster}" accept="image/png, image/jpg"></label>
+                            <label class="custom-file-upload">Add poster<input type="file" th:field="*{poster}" accept="image/png, image/jpg"></label>
                         </div>
 
                         <div class="poster-preview">
@@ -65,14 +65,14 @@
 
                     <div class="textarea-group">
                         <textarea rows="5" th:field="*{shortDescription}" maxlength="200" required></textarea>
-                        <label>Krótki opis - max 200 znaków</label>
+                        <label>Short description</label>
                     </div>
 
                     <div class="textarea-group">
                         <textarea rows="10" th:field="*{description}" maxlength="10000" required></textarea>
-                        <label>Pełny opis</label>
+                        <label>Description</label>
                     </div>
-                    <button type="submit">Dodaj</button>
+                    <button type="submit">Add</button>
                 </form>
             </div>
         </main>

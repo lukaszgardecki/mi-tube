@@ -6,24 +6,24 @@
 >
     <head>
         <meta charset="UTF-8">
-        <title>Dodaj nowy gatunek filmowy</title>
+        <title>Add new movie genre</title>
     </head>
     <body>
         <main class="wrapper" layout:fragment="content">
             <div class="form-wrapper">
                 <form action="#" th:action="@{/admin/dodaj-gatunek}" method="post" th:object="${genre}">
-                    <h2>Dodaj nowy gatunek</h2>
+                    <h2>Add new genre</h2>
 
                     <div class="input-group">
                         <input type="text" th:field="*{name}" required>
-                        <label>Nazwa</label>
+                        <label>Name</label>
                     </div>
 
                     <div class="textarea-group">
                         <textarea rows="5" th:field="*{description}" maxlength="500" required></textarea>
-                        <label>Opis - max 500 znaków</label>
+                        <label>Description</label>
                     </div>
-                    <button type="submit">Dodaj</button>
+                    <button type="submit">Add</button>
                 </form>
             </div>
         </main>

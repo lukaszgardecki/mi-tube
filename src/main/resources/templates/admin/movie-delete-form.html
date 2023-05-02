@@ -6,22 +6,22 @@
 >
     <head>
         <meta charset="UTF-8">
-        <title>Usuń film</title>
+        <title>Delete movie</title>
     </head>
     <body>
         <main class="main-content" layout:fragment="content">
 
-            <h2 class="list-heading">Usuń film</h2>
+            <h2 class="list-heading">Delete movie</h2>
 
             <form action="#" th:action="@{/admin/usun-film}" method="post" class="pick-movie">
                 <div>
-                    <label>Tytuł</label>
+                    <label>Title</label>
                     <select name="movieId" id="movie-del-title" required>
-                        <option value="" hidden="">Wybierz film</option>
+                        <option value="" hidden="">Choose a movie</option>
                         <option th:each="movie, i : ${movies}" th:value="${movie.id}" th:text="${movie.title}"></option>
                     </select>
                 </div>
-                <button type="submit">Usuń</button>
+                <button type="submit">Delete</button>
             </form>
 
             <div th:each="movie, i : ${movies}" th:object="${movie}" th:id="movie-del-option- + ${i.index}" class="invisible">
@@ -35,31 +35,31 @@
                         />
                         <div class="movie-summary-info">
                             <h1 class="movie-summary-title" th:text="${movie.title}">
-                                Władca pierścieni
+                                Super Mario Bros
                             </h1>
                             <p class="movie-summary-original-title" th:text="${movie.originalTitle}">
-                                Lord of the Rings
+                                Super Mario Bros. Movie
                             </p>
-                            <p class="movie-summary-item" th:text="|Rok: ${movie.releaseYear}|">
-                                Rok: 2001
+                            <p class="movie-summary-item" th:text="|Year: ${movie.releaseYear}|">
+                                Year: 2001
                             </p>
                             <p class="movie-summary-item">
-                                Gatunek: <a href="#" th:href="@{|/gatunek/${movie.genre}|}" th:text="${movie.genre}">Fantasy</a>
+                                Genre: <a href="#" th:href="@{|/gatunek/${movie.genre}|}" th:text="${movie.genre}">Fantasy</a>
                             </p>
                             <p class="movie-summary-item" th:text="${movie.shortDescription}">
-                                Podróż odważnego hobbita i jego towarzyszy w poszukiwaniu pierścienia
+                                The story of The Super Mario Bros. on their journey through the Mushroom Kingdom.
                             </p>
                         </div>
                     </div>
                     <div class="movie-rating-container movie-section">
-                        <h2 class="movie-section-heading">Ocena</h2>
-                        <p th:unless="${movie.ratingCount}">Brak głosów</p>
+                        <h2 class="movie-section-heading">Rating</h2>
+                        <p th:unless="${movie.ratingCount}">No ratings</p>
                         <div th:if="${movie.ratingCount}">
                             <p class="movie-rating-value" th:text="${#numbers.formatDecimal(movie.avgRating, 1, 1)}">4.0</p>
-                            <p style="text-align: center" th:text="|Liczba ocen: ${movie.ratingCount}|">Liczba ocen: 123</p>
+                            <p style="text-align: center" th:text="|Liczba ocen: ${movie.ratingCount}|">Ratings: 123</p>
                         </div>
                         <form action="#" th:action="@{/ocen-film}" method="post" class="movie-rating-form">
-                            <p>Twoja ocena</p>
+                            <p>Your rating</p>
                             <input type="hidden" name="movieId" th:value="${movie.id}">
                             <div class="movie-rating-buttons">
                                 <button class="movie-rating-button" name="rating" th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i}">

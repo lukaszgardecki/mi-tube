@@ -6,27 +6,27 @@
 >
     <head>
         <meta charset="UTF-8">
-        <title>Panel Administracyjny</title>
+        <title>Admin Panel</title>
     </head>
     <body>
         <main class="main-content" layout:fragment="content">
-            <p class="notification-bar" th:if="${notification}" th:text="${notification}">Belka z powiadomieniami</p>
-            <h2 class="list-heading">Panel administracyjny</h2>
+            <p class="notification-bar" th:if="${notification}" th:text="${notification}">Notification bar</p>
+            <h2 class="list-heading">Admin Panel</h2>
             <ul class="list-border">
                 <li>
-                    Film
+                    Movie
                     <div>
-                        <a class="btn add" href="#" th:href="@{/admin/dodaj-film}">Dodaj</a>
-                        <a class="btn edit" href="#" th:href="@{/admin/edytuj-film}">Edytuj</a>
-                        <a class="btn delete" href="#" th:href="@{/admin/usun-film}">Usuń</a>
+                        <a class="btn add" href="#" th:href="@{/admin/dodaj-film}">Add</a>
+                        <a class="btn edit" href="#" th:href="@{/admin/edytuj-film}">Edit</a>
+                        <a class="btn delete" href="#" th:href="@{/admin/usun-film}">Delete</a>
                     </div>
                 </li>
                 <li>
-                    Gatunek
+                    Genre
                     <div>
-                        <a class="btn add" href="#" th:href="@{/admin/dodaj-gatunek}">Dodaj</a>
-                        <a class="btn edit" href="#" th:href="@{/admin/edytuj-gatunek}">Edytuj</a>
-                        <a class="btn delete" href="#" th:href="@{/admin/usun-gatunek}">Usuń</a>
+                        <a class="btn add" href="#" th:href="@{/admin/dodaj-gatunek}">Add</a>
+                        <a class="btn edit" href="#" th:href="@{/admin/edytuj-gatunek}">Edit</a>
+                        <a class="btn delete" href="#" th:href="@{/admin/usun-gatunek}">Delete</a>
                     </div>
                 </li>
             </ul>

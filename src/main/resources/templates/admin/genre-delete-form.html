@@ -6,26 +6,26 @@
 >
     <head>
         <meta charset="UTF-8">
-        <title>Usuń gatunek</title>
+        <title>Delete genre</title>
     </head>
     <body>
         <main class="wrapper delete-genre" layout:fragment="content">
-            <h2>Usuń gatunek</h2>
+            <h2>Delete Genre</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Nazwa</th>
-                        <th colspan="2">Opis</th>
+                        <th>Name</th>
+                        <th colspan="2">Description</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="genre : ${allGenres}" th:object="${genre}">
                         <td class="name-col" th:text="*{name}">Horror</td>
-                        <td class="desc-col" th:text="*{description}">Straszny film</td>
+                        <td class="desc-col" th:text="*{description}">Super Mario Bros</td>
                         <td class="btn-col">
                             <form action="#" th:action="@{/admin/usun-gatunek}" method="post">
                                 <input type="hidden" name="genreId" th:value="*{id}">
-                                <button type="submit">Usuń</button>
+                                <button type="submit">Delete</button>
                             </form>
                         </td>
                     </tr>

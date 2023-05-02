@@ -40,8 +40,8 @@ public class MovieController {
     @GetMapping("/top10")
     public String findTop10(Model model) {
         List<MovieDto> top10Movies = movieService.findTopMovies(10);
-        model.addAttribute("heading", "Filmowe TOP 10");
-        model.addAttribute("description", "Filmy najlepiej oceniane przez użytkowników");
+        model.addAttribute("heading", "TOP 10");
+        model.addAttribute("description", "Top rated movies");
         model.addAttribute("movies", top10Movies);
         return "top10";
     }

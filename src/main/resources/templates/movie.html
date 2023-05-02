@@ -6,7 +6,7 @@
       layout:decorate="~{layout}"
 >
     <head>
-        <title th:text="|${movie.title} - MovieClub|">Tytuł filmu - MovieClub</title>
+        <title th:text="|${movie.title} - MovieClub|">Movie title - MovieClub</title>
     </head>
     <body>
         <div class="container">
@@ -21,31 +21,31 @@
                         />
                         <div class="movie-summary-info">
                             <h1 class="movie-summary-title" th:text="${movie.title}">
-                                Władca pierścieni
+                                Super Mario Bros
                             </h1>
                             <p class="movie-summary-original-title" th:text="${movie.originalTitle}">
-                                Lord of the Rings
+                                Super Mario Bros. Movie
                             </p>
-                            <p class="movie-summary-item" th:text="|Rok: ${movie.releaseYear}|">
-                                Rok: 2001
+                            <p class="movie-summary-item" th:text="|Release year: ${movie.releaseYear}|">
+                                Release year: 2001
                             </p>
                             <p class="movie-summary-item">
-                                Gatunek: <a href="#" th:href="@{|/gatunek/${movie.genre}|}" th:text="${movie.genre}">Fantasy</a>
+                                Genre: <a href="#" th:href="@{|/gatunek/${movie.genre}|}" th:text="${movie.genre}">Fantasy</a>
                             </p>
                             <p class="movie-summary-item" th:text="${movie.shortDescription}">
-                                Podróż odważnego hobbita i jego towarzyszy w poszukiwaniu pierścienia
+                                The story of The Super Mario Bros. on their journey through the Mushroom Kingdom.
                             </p>
                         </div>
                     </div>
                     <div class="movie-rating-container movie-section">
-                        <h2 class="movie-section-heading">Ocena</h2>
-                        <p th:unless="${movie.ratingCount}">Brak głosów</p>
+                        <h2 class="movie-section-heading">Rating</h2>
+                        <p th:unless="${movie.ratingCount}">No ratings</p>
                         <div th:if="${movie.ratingCount}">
                             <p class="movie-rating-value" th:text="${#numbers.formatDecimal(movie.avgRating, 1, 1)}">4.0</p>
-                            <p style="text-align: center" th:text="|Liczba ocen: ${movie.ratingCount}|">Liczba ocen: 123</p>
+                            <p style="text-align: center" th:text="|Ratings: ${movie.ratingCount}|">Ratings: 123</p>
                         </div>
                         <form action="#" th:action="@{/ocen-film}" method="post" sec:authorize="isAuthenticated()" class="movie-rating-form">
-                            <p>Twoja ocena</p>
+                            <p>Your rating</p>
                             <input type="hidden" name="movieId" th:value="${movie.id}">
                             <div class="movie-rating-buttons">
                                 <button class="movie-rating-button" name="rating" th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i}">
@@ -54,7 +54,7 @@
                             </div>
                         </form>
                         <p sec:authorize="!isAuthenticated()">
-                            <a href="#" th:href="@{/login}">Zaloguj się</a>, aby oddać głos
+                            <a href="#" th:href="@{/login}">Sign in</a> to rate
                         </p>
                     </div>
                 </section>
@@ -67,9 +67,9 @@
                             frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
                     </iframe>
                 </section>
-<!--    OPIS       -->
+<!--    DESCRIPTION       -->
                 <section class="movie-section">
-                    <h2 class="movie-section-heading">Opis</h2>
+                    <h2 class="movie-section-heading">Description</h2>
                     <p th:text="${movie.description}">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
                         Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc
                         ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.

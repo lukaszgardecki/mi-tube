@@ -32,20 +32,20 @@
                     </a>
                 </li>
                 <li class="menu-toggle"><a href="#"><i id="toggle-icon" class="far fa-plus-square"></i></a></li>
-                <li class="menu-item"><a href="#" th:href="@{/gatunki-filmowe}">Gatunki</a></li>
+                <li class="menu-item"><a href="#" th:href="@{/gatunki-filmowe}">Genres</a></li>
                 <li class="menu-item"><a href="#" th:href="@{/top10}">Top 10</a></li>
                 <li class="menu-item" sec:authorize="hasAnyRole('ADMIN', 'EDITOR')">
-                    <a href="#" th:href="@{/admin}">Administracja</a>
+                    <a href="#" th:href="@{/admin}">Admin Panel</a>
                 </li>
 
                 <li class="menu-item">
                     <a href="#" th:href="@{/login}" sec:authorize="!isAuthenticated()">
                         <ion-icon name="log-in-outline"></ion-icon>
-                        <span>Zaloguj się</span>
+                        <span>Sign in</span>
                     </a>
                     <a href="#" th:href="@{/logout}" sec:authorize="isAuthenticated()">
                         <ion-icon name="log-out-outline"></ion-icon>
-                        <span>Wyloguj się</span>
+                        <span>Sign out</span>
                     </a>
                 </li>
             </ul>
@@ -53,7 +53,7 @@
             <header class="jumbotron">
                 <h1 class="jumbotron-header">MI Tube</h1>
                 <p class="jumbotron-description">
-                  Witaj w najlepszej bazie filmów w sieci. Oceniaj i dyskutuj o najnowszych produkcjach i klasykach kina.
+                  Welcome! Discover, rate and discuss the latest productions and cinema classics.
                 </p>
             </header>
 

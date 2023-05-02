@@ -6,27 +6,27 @@
 >
     <head>
         <meta charset="UTF-8">
-        <title>Zarejestruj się</title>
+        <title>Sign up</title>
     </head>
     <body>
         <main class="wrapper" layout:fragment="content">
             <div class="form-wrapper">
                 <form action="#" th:action=" @{/rejestracja}" method="post" class="" th:object="${user}">
-                    <h2>Zarejestruj się</h2>
+                    <h2>Sign up</h2>
                     <div class="input-group">
                         <input type="email" name="email"  th:field="*{email}" required>
-                        <label>Adres email</label>
+                        <label>Email</label>
                     </div>
                     <div class="input-group">
                         <input type="password" name="password" th:field="*{password}" required>
-                        <label>Hasło</label>
+                        <label>Password</label>
                     </div>
                     <div class="remember">
-                        <label><input type="checkbox"> Akceptuję warunki regulaminu i politykę prywatności</label>
+                        <label><input type="checkbox"> I accept the Terms of Use & Privacy Policy</label>
                     </div>
-                    <button type="submit">Zarejestruj się</button>
+                    <button type="submit">Sign up</button>
                     <div class="signUp-link">
-                        <p>Masz już konto? <a href="#" th:href=" @{/login}" class="signInBtn-link">Zaloguj się</a></p>
+                        <p>Have an account yet? <a href="#" th:href=" @{/login}" class="signInBtn-link">Sign in</a></p>
                     </div>
                 </form>
             </div>

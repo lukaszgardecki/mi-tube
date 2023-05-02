@@ -5,7 +5,7 @@
     --navbar-item-log-icon: 1.4rem;
     --navbar-item-font-size: 1 rem;
 
-    --preview-card-title-font-size: 1.6rem;
+    --preview-card-title-font-size: 1.2rem;
     --preview-card-header-font-size: 1.6rem;
     --preview-card-border-color: #6d6d6d;
     --community-ratings-value-font-size: 1.6rem;
@@ -113,6 +113,7 @@ a {
 }
 
 .menu-logo-container a .text {
+    color: var(--main-text-color);
     font-weight: 500;
     display: flex;
     margin: auto 0;
@@ -168,9 +169,30 @@ a {
     border: 1px var(--preview-card-border-color) solid;
 }
 
+.movie-list-item > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie-list-item .position {
+    text-align: center;
+    display: flex;
+    font-size: var(--preview-card-title-font-size);
+    width: 4rem;
+    font-weight: 400;
+    align-items: center;
+    justify-content: center;
+}
+
 .movie-list-item-poster {
     display: block;
     max-width: 200px;
+}
+
+.movie-list-item-poster-top10 {
+    display: block;
+    max-width: 100px;
 }
 
 .movie-list-item-card {
@@ -178,6 +200,16 @@ a {
     flex-direction: column;
     justify-content: space-between;
     padding: 22px;
+    width: 100%;
+}
+
+.top10-card {
+    padding: 0 22px;
+    justify-content: space-between;
+}
+
+.top10-header {
+    height: 100%;
 }
 
 .movie-list-item-content > * {
@@ -194,6 +226,13 @@ a {
 
 .movie-list-item-rating .star {
     color: var(--second-text-color);
+}
+
+.top10 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15rem;
 }
 
 .movie-summary {

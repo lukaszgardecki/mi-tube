@@ -4,6 +4,7 @@ const selectedGenre= document.querySelector("#genre-name");
 const selectedTitle = document.querySelector("#movie-title");
 const selectedDelMovie = document.querySelector("#movie-del-title");
 const selectedDelGenre = document.querySelector("#genre-del-name");
+const posterInput = document.querySelector(".custom-file-upload input");
 let previousSelectedMovieForm;
 let previousSelectedGenreForm;
 let previousSelectedDelMovieForm;
@@ -74,3 +75,20 @@ function displayGenrePreview() {
     genreToDeletePreview.classList.remove('invisible');
     previousSelectedDelGenreForm = genreToDeletePreview;
 }
+
+document.getElementById("year").innerHTML = new Date().getFullYear().toString();
+
+function getCurrentYear() {
+   return new Date().getFullYear().toString();
+}
+
+if (posterInput != null) {
+    posterInput.onchange = () => {
+        const [file] = posterInput.files;
+        if (file) {
+            let image = document.querySelector(".poster-preview img");
+            image.src = URL.createObjectURL(file);
+        }
+    };
+}
+

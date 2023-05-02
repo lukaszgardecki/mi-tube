@@ -30,7 +30,7 @@ public class GenreManagementController {
         genreService.addGenre(genre);
         redirectAttributes.addFlashAttribute(
                 AdminController.NOTIFICATION_ATTRIBUTE,
-                "Gatunek %s został zapisany".formatted(genre.getName())
+                "Genre %s has been saved".formatted(genre.getName())
         );
         return "redirect:/admin";
     }
@@ -48,7 +48,7 @@ public class GenreManagementController {
         genreService.saveEditedGenre(genre);
         redirectAttributes.addFlashAttribute(
                 AdminController.NOTIFICATION_ATTRIBUTE,
-                "Gatunek %s został zapisany".formatted(genre.getName())
+                "Genre %s has been changed".formatted(genre.getName())
         );
         return "redirect:/admin";
     }
@@ -65,7 +65,7 @@ public class GenreManagementController {
         GenreDto deletedGenre = genreService.deleteGenreById(genreId);
         redirectAttributes.addFlashAttribute(
                 AdminController.NOTIFICATION_ATTRIBUTE,
-                "Gatunek %s został usunięty".formatted(deletedGenre.getName())
+                "Genre %s has been removed".formatted(deletedGenre.getName())
         );
         return "redirect:/admin";
     }

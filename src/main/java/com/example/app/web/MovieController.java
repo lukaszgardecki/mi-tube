@@ -27,8 +27,6 @@ public class MovieController {
     public String getMovie(@PathVariable long id, Model model, Authentication authentication) {
         MovieDto movie = movieService.findMovieById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-
-        System.out.println(movie.getYoutubeTrailer());
         model.addAttribute("movie", movie);
 
         if (authentication != null) {
@@ -42,9 +40,9 @@ public class MovieController {
     @GetMapping("/top10")
     public String findTop10(Model model) {
         List<MovieDto> top10Movies = movieService.findTopMovies(10);
-        model.addAttribute("heading", "Filmowe TOP10");
-        model.addAttribute("description", "Filmy najlepiej oceniane przez użytkowników");
+        model.addAttribute("heading", "TOP 10");
+        model.addAttribute("description", "Top rated movies");
         model.addAttribute("movies", top10Movies);
-        return "movie-listing";
+        return "top10";
     }
 }

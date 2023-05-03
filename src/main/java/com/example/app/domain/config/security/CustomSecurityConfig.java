@@ -25,8 +25,9 @@ public class CustomSecurityConfig {
                         .requestMatchers("/admin/**").hasAnyRole(EDITOR_ROLE, ADMIN_ROLE)
                         .anyRequest().permitAll())
                 .formLogin(login -> login
-                        .loginPage("/login")
-                        .permitAll())
+                        .loginPage("/login").permitAll()
+                        .defaultSuccessUrl("/login-success")
+                )
                 .logout(logout -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout/**", HttpMethod.GET.name()))
                         .logoutSuccessUrl("/login?logout").permitAll())

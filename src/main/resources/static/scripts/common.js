@@ -5,6 +5,8 @@ const selectedTitle = document.querySelector("#movie-title");
 const selectedDelMovie = document.querySelector("#movie-del-title");
 const selectedDelGenre = document.querySelector("#genre-del-name");
 const posterInput = document.querySelector(".custom-file-upload input");
+const userTabDropdownBtn = document.querySelector(".user-tab .avatar");
+let userTabDropdown = document.querySelector('.user-tab ul');
 let previousSelectedMovieForm;
 let previousSelectedGenreForm;
 let previousSelectedDelMovieForm;
@@ -92,3 +94,24 @@ if (posterInput != null) {
     };
 }
 
+
+if (userTabDropdownBtn != null) {
+    window.onclick = (e) => {
+        let avatarIsClicked = e.target === userTabDropdownBtn;
+        let popupIsVisible = userTabDropdown.style.display === 'block';
+        let isClickedOutsidePopup = !userTabDropdown.contains(e.target);
+
+        if (window.innerWidth < 992) showPopup();
+        else if (avatarIsClicked && popupIsVisible) hidePopup();
+        else if (avatarIsClicked) showPopup();
+        else if (isClickedOutsidePopup) hidePopup();
+    };
+}
+
+function hidePopup() {
+    userTabDropdown.style.display = 'none';
+}
+
+function showPopup() {
+    userTabDropdown.style.display = 'block';
+}

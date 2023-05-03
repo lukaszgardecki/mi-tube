@@ -30,6 +30,8 @@ public class UserService {
     public void registerUserWithDefaultRole(UserRegistrationDto userRegistration) {
         UserRole defaultRole = userRoleRepository.findByName(DEFAULT_USER_ROLE).orElseThrow();
         User user = new User();
+        user.setFirstName(userRegistration.getFirstName());
+        user.setLastName(userRegistration.getLastName());
         user.setEmail(userRegistration.getEmail());
         user.setPassword(passwordEncoder.encode(userRegistration.getPassword()));
         user.getRoles().add(defaultRole);

@@ -41,12 +41,12 @@
                     </a>
 
                     <div class="user-tab" sec:authorize="isAuthenticated()">
-                        <div class="avatar">JS</div>
+                        <div class="avatar" th:text="${session.user.initials}">JS</div>
                         <ul>
                             <li>
-                                <div class="avatar">JS</div>
+                                <div class="avatar" th:text="${session.user.initials}">JS</div>
                                 <div class="user-info">
-                                    <span class="user-name">John Smith</span>
+                                    <span class="user-name" th:text="|${session.user.firstName} ${session.user.lastName}|">John Smith</span>
                                     <span class="acc-manage"><a href="#">Manage your account</a></span>
                                 </div>
                             </li>

@@ -2,6 +2,9 @@ package com.example.app.domain.user;
 
 import com.example.app.domain.user.dto.UserCredentialsDto;
 import com.example.app.domain.user.dto.UserRegistrationDto;
+import com.example.app.domain.user.dto.UserSessionDto;
+import com.example.app.domain.user.mapper.UserCredentialsDtoMapper;
+import com.example.app.domain.user.mapper.UserSessionDtoMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +26,7 @@ public class UserService {
     }
 
     public Optional<UserCredentialsDto> findCredentialsByEmail(String email) {
-        return userRepository.findByEmail(email).map(UserCredentialsMapper::map);
+        return userRepository.findByEmail(email).map(UserCredentialsDtoMapper::map);
     }
 
     @Transactional
@@ -36,5 +39,9 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(userRegistration.getPassword()));
         user.getRoles().add(defaultRole);
         userRepository.save(user);
+    }
+
+    public Optional<UserSessionDto> findUserByEmail(String email) {
+        return userRepository.findByEmail(email).map(UserSessionDtoMapper::map);
     }
 }

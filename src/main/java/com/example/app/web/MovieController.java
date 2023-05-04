@@ -23,7 +23,7 @@ public class MovieController {
         this.ratingService = ratingService;
     }
 
-    @GetMapping("/film/{id}")
+    @GetMapping("/movie/{id}")
     public String getMovie(@PathVariable long id, Model model, Authentication authentication) {
         MovieDto movie = movieService.findMovieById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));

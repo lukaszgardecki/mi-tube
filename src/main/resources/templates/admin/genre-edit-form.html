@@ -21,7 +21,7 @@
             </div>
             <div class="form-wrapper">
 
-                <form action="#" th:action="@{/admin/edytuj-gatunek}"
+                <form action="#" th:action="@{/admin/genre-edit}"
                       method="post" class="invisible" th:each="genre, i : ${allGenres}"
                       th:object="${genre}" th:id="genre-option- + ${i.index}">
 

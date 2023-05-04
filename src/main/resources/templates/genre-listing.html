@@ -14,7 +14,7 @@
                 <p class="list-description">Genres in our catalogue. Choose one for you!</p>
                 <ul class="list-border">
                     <li th:each="genre : ${genres}">
-                        <a th:href="@{|/gatunek/${genre.name}|}"
+                        <a th:href="@{|/genre/${genre.name}|}"
                             th:text="${genre.name}">
                             Horror
                         </a>

@@ -30,7 +30,7 @@
                                 Release year: 2001
                             </p>
                             <p class="movie-summary-item">
-                                Genre: <a href="#" th:href="@{|/gatunek/${movie.genre}|}" th:text="${movie.genre}">Fantasy</a>
+                                Genre: <a href="#" th:href="@{|/genre/${movie.genre}|}" th:text="${movie.genre}">Fantasy</a>
                             </p>
                             <p class="movie-summary-item" th:text="${movie.shortDescription}">
                                 The story of The Super Mario Bros. on their journey through the Mushroom Kingdom.
@@ -44,7 +44,7 @@
                             <p class="movie-rating-value" th:text="${#numbers.formatDecimal(movie.avgRating, 1, 1)}">4.0</p>
                             <p style="text-align: center" th:text="|Ratings: ${movie.ratingCount}|">Ratings: 123</p>
                         </div>
-                        <form action="#" th:action="@{/ocen-film}" method="post" sec:authorize="isAuthenticated()" class="movie-rating-form">
+                        <form action="#" th:action="@{/rate-movie}" method="post" sec:authorize="isAuthenticated()" class="movie-rating-form">
                             <p>Your rating</p>
                             <input type="hidden" name="movieId" th:value="${movie.id}">
                             <div class="movie-rating-buttons">

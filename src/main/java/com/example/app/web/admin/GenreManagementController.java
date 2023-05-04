@@ -24,7 +24,7 @@ public class GenreManagementController {
     public String addGenreForm(Model model) {
         GenreDto genre = new GenreDto();
         model.addAttribute("genre", genre);
-        return "admin/genre-add-form";
+        return "layout-elements/content/admin/genre-add-form";
     }
 
     @PostMapping("/genre-add")
@@ -42,7 +42,7 @@ public class GenreManagementController {
         List<GenreDto> allGenres = genreService.findAllGenres();
 
         model.addAttribute("allGenres", allGenres);
-        return "admin/genre-edit-form";
+        return "layout-elements/content/admin/genre-edit-form";
     }
 
     @PostMapping("/genre-edit")
@@ -59,7 +59,7 @@ public class GenreManagementController {
     public String deleteGenreForm(Model model) {
         List<GenreDto> allGenres = genreService.findAllGenres();
         model.addAttribute("allGenres", allGenres);
-        return "admin/genre-delete-form";
+        return "layout-elements/content/admin/genre-delete-form";
     }
 
     @PostMapping("/genre-delete")

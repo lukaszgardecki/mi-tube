@@ -33,7 +33,7 @@ public class MovieManagementController {
         MovieSaveDto movie = new MovieSaveDto();
         model.addAttribute("movie", movie);
 
-        return "admin/movie-add-form";
+        return "layout-elements/content/admin/movie-add-form";
     }
 
     @PostMapping("/movie-add")
@@ -54,7 +54,7 @@ public class MovieManagementController {
 
         model.addAttribute("movies", movies);
         model.addAttribute("genres", allGenres);
-        return "admin/movie-edit-form";
+        return "layout-elements/content/admin/movie-edit-form";
     }
 
     @PostMapping("/movie-edit")
@@ -73,7 +73,7 @@ public class MovieManagementController {
         List<MovieDto> movies = movieService.findAllMovies();
 
         model.addAttribute("movies", movies);
-        return "admin/movie-delete-form";
+        return "layout-elements/content/admin/movie-delete-form";
     }
 
     @PostMapping("/movie-delete")

@@ -2,7 +2,6 @@
 <html lang="pl"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
 >
     <head>
         <meta charset="UTF-8">
@@ -22,73 +21,10 @@
     </head>
     <body>
         <div class="container">
-            <ul class="menu">
-                <li class="menu-logo-container">
-                    <a href="#" th:href="@{/}">
-                        <span class="logo">
-                            <ion-icon name="tv"></ion-icon>
-                            <span>MI</span>
-                        </span>
-                        <span class="text">Tube</span>
-                    </a>
-                </li>
-                <li class="menu-toggle"><a href="#"><i id="toggle-icon" class="far fa-plus-square"></i></a></li>
-
-                <li class="menu-item">
-                    <a href="#" th:href="@{/login}" sec:authorize="!isAuthenticated()">
-                        <ion-icon name="log-in-outline"></ion-icon>
-                        <span>Sign in</span>
-                    </a>
-
-                    <div class="user-tab" sec:authorize="isAuthenticated()">
-                        <div class="avatar" th:text="${session.user.initials}">JS</div>
-                        <ul>
-                            <li>
-                                <div class="avatar" th:text="${session.user.initials}">JS</div>
-                                <div class="user-info">
-                                    <span class="user-name" th:text="|${session.user.firstName} ${session.user.lastName}|">John Smith</span>
-                                    <span class="acc-manage"><a href="#">Manage your account</a></span>
-                                </div>
-                            </li>
-                            <li sec:authorize="hasAnyRole('ADMIN', 'EDITOR')">
-                                <a href="#" th:href="@{/admin}">
-                                    <div class="dropdown-list-pos-content">
-                                        <span class="dropdown-icon">
-                                            <i class="icon-cog-alt"></i>
-                                        </span>
-                                        <span class="dropdown-text">Admin Panel</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" th:href="@{/logout}">
-                                    <div class="dropdown-list-pos-content">
-                                        <span class="dropdown-icon">
-                                            <i class="icon-off"></i>
-                                        </span>
-                                        <span class="dropdown-text">Sign out</span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="menu-item"><a href="#" th:href="@{/movie-genres}">Genres</a></li>
-                <li class="menu-item"><a href="#" th:href="@{/top10}">Top 10</a></li>
-            </ul>
-
-            <header class="jumbotron">
-                <h1 class="jumbotron-header">MI Tube</h1>
-                <p class="jumbotron-description">
-                  Welcome! Discover, rate and discuss the latest productions and cinema classics.
-                </p>
-            </header>
-
-            <main class="main-content" layout:fragment="content"></main>
-
-            <footer class="footer">
-                <p>MI Tube <span id="year">0000</span> <i class="fas fa-copyright"></i></p>
-            </footer>
+            <ul layout:replace="~{layout-elements/navbar.html :: navbar}"></ul>
+            <header layout:replace="~{layout-elements/jumbotron.html :: jumbotron}"></header>
+            <main layout:fragment="content"></main>
+            <footer layout:replace="~{layout-elements/footer.html :: footer}"></footer>
         </div>
 
         <script defer src="../static/scripts/common.js" th:src="@{/scripts/common.js}"></script>

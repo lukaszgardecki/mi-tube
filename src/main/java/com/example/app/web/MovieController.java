@@ -34,7 +34,7 @@ public class MovieController {
             Integer rating = ratingService.getUserRatingForMovie(currentUserEmail, id).orElse(0);
             model.addAttribute("userRating", rating);
         }
-        return "movie";
+        return "layout-elements/content/movie";
     }
 
     @GetMapping("/top10")
@@ -43,6 +43,6 @@ public class MovieController {
         model.addAttribute("heading", "TOP 10");
         model.addAttribute("description", "Top rated movies");
         model.addAttribute("movies", top10Movies);
-        return "top10";
+        return "layout-elements/content/top10";
     }
 }

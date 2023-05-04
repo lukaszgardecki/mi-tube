@@ -19,7 +19,7 @@ public class RegistrationController {
     public String getRegistrationForm(Model model) {
         UserRegistrationDto userRegistration = new UserRegistrationDto();
         model.addAttribute("user", userRegistration);
-        return "registration-form";
+        return "layout-elements/content/registration-form";
     }
 
     @PostMapping("/register")

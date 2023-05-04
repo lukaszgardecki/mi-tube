@@ -31,13 +31,13 @@ public class GenreController {
         model.addAttribute("heading", genre.getName());
         model.addAttribute("description", genre.getDescription());
         model.addAttribute("movies", movies);
-        return "movie-listing";
+        return "layout-elements/content/movie-listing";
     }
 
     @GetMapping("/movie-genres")
     public String getGenreList(Model model) {
         List<GenreDto> genres = genreService.findAllGenres();
         model.addAttribute("genres", genres);
-        return "genre-listing";
+        return "layout-elements/content/genre-listing";
     }
 }

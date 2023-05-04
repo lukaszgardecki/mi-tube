@@ -9,13 +9,7 @@ public class UserSessionDtoMapper {
         UserSessionDto dto = new UserSessionDto();
         dto.setFirstName(user.getFirstName());
         dto.setLastName(user.getLastName());
-        dto.setInitials(getUserInitials(user));
+        dto.setInitials(user.getFirstName().substring(0, 1));
         return dto;
-    }
-
-    private static String getUserInitials(User user) {
-        String firstLetterOfFirstName = user.getFirstName().substring(0, 1);
-        String firstLetterOfLastName = user.getLastName().substring(0, 1);
-        return firstLetterOfFirstName + firstLetterOfLastName;
     }
 }

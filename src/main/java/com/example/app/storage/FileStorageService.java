@@ -18,15 +18,19 @@ import java.nio.file.StandardCopyOption;
 public class FileStorageService {
     private final String fileStorageLocation;
     private final String imageStorageLocation;
+    private final String avatarStorageLocation;
 
     public FileStorageService(@Value("${app.storage.location}") String fileStorageLocation) throws FileNotFoundException {
         this.fileStorageLocation = fileStorageLocation;
         this.imageStorageLocation = fileStorageLocation + "/img/";
+        this.avatarStorageLocation = fileStorageLocation + "/avatar/";
 
         Path fileStoragePath = Path.of(fileStorageLocation);
         checkDirectoryExists(fileStoragePath);
         Path imageStoragePath = Path.of(imageStorageLocation);
         checkDirectoryExists(imageStoragePath);
+        Path avatarStoragePath = Path.of(avatarStorageLocation);
+        checkDirectoryExists(avatarStoragePath);
     }
 
     public String saveImage(MultipartFile file) {
@@ -37,8 +41,17 @@ public class FileStorageService {
         return saveFile(file, fileStorageLocation);
     }
 
+    public String saveAvatar(MultipartFile file) {
+        return saveFile(file, avatarStorageLocation);
+    }
+
     public void deleteImage(String fileName) {
         File file = new File(imageStorageLocation + fileName);
+        file.delete();
+    }
+
+    public void deleteAvatar(String fileName) {
+        File file = new File(avatarStorageLocation + fileName);
         file.delete();
     }
 

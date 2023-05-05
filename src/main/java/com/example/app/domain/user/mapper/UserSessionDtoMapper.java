@@ -10,6 +10,7 @@ public class UserSessionDtoMapper {
         dto.setFirstName(user.getFirstName());
         dto.setLastName(user.getLastName());
         dto.setInitials(user.getFirstName().substring(0, 1));
+        dto.setEmail(user.getEmail());
         dto.setAvatar(user.getAvatar());
         return dto;
     }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}"
+>
+    <head>
+        <meta charset="UTF-8">
+        <title>Acocunt</title>
+    </head>
+    <body>
+        <main class="wrapper manage-account" layout:fragment="content" th:object="${userData}">
+
+
+            <div class="form-wrapper">
+                <form action="#" th:action="@{/myaccount}" method="post" enctype="multipart/form-data" class="">
+                    <input type="hidden" name="currentEmail" th:value="${#authentication.name}"/>
+
+                    <label class="avatar" th:style="${session.user.avatar ne null}
+                            ? 'background-image: url('+ @{|/avatar/${session.user.avatar}|} +')'
+                            : 'background-image: none' ">
+                        <input type="file" name="avatar" accept="image/png, image/jpg">
+                        <span th:text="${session.user.avatar ne null ? '' : session.user.initials}">JS</span>
+                        <label class="background-icon">
+                            <i class="icon-file-image"></i>
+                        </label>
+                    </label>
+
+                    <h2 th:text="|Welcome *{firstName} *{lastName}|">Welcome John Smith</h2>
+                    <h4>Manage your info</h4>
+
+                    <p th:each="error : ${#fields.errors()}" th:text="${error}" class="form-message">Message</p>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <input type="text" th:field="*{firstName}" required>
+                            <label>First name</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" th:field="*{lastName}" required>
+                            <label>Last name</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <input type="email" th:field="*{email}" required>
+                            <label>Email</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <input type="password" id="newPassword" th:field="*{newPassword}" required>
+                            <label>New password</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" id="confirmPassword" th:field="*{confirmPassword}" required>
+                            <label>Confirm new password</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <input type="password" id="oldPassword" th:field="*{oldPassword}" required>
+                            <label>Old password</label>
+                        </div>
+                    </div>
+                    <button type="submit" id="submitBtn">Save</button>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>

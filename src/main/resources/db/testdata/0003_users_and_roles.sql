@@ -1,9 +1,9 @@
 insert into
-    users (first_name, last_name, email, password)
+    users (first_name, last_name, email, password, avatar)
 values
-    ('Mario', 'Prada','admin@example.com', '{noop}adminpass'),
-    ('Tommy', 'Hilfiger', 'user@example.com', '{noop}userpass'),
-    ('Louis', 'Vuitton','editor@example.com', '{noop}editorpass');
+    ('Mario', 'Prada','admin@example.com', '{noop}adminpass', 'photo0.jpg'),
+    ('Tommy', 'Hilfiger', 'user@example.com', '{noop}userpass', null),
+    ('Louis', 'Vuitton','editor@example.com', '{noop}editorpass', null);
 
 insert into
     user_role (name, description)

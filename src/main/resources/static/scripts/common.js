@@ -5,7 +5,10 @@ const selectedTitle = document.querySelector("#movie-title");
 const selectedDelMovie = document.querySelector("#movie-del-title");
 const selectedDelGenre = document.querySelector("#genre-del-name");
 const posterInput = document.querySelector(".custom-file-upload input");
+const avatarInput = document.querySelector(".manage-account .avatar input");
+let initialLetter = document.querySelector(".manage-account .avatar span");
 const userTabDropdownBtn = document.querySelector(".user-tab .avatar");
+const manageAcc = document.querySelector(".manage-account");
 let userTabDropdown = document.querySelector('.user-tab ul');
 let previousSelectedMovieForm;
 let previousSelectedGenreForm;
@@ -114,4 +117,55 @@ function hidePopup() {
 
 function showPopup() {
     userTabDropdown.style.display = 'block';
+}
+
+function hideJumbotron() {
+    document.querySelector(".jumbotron").style.display = 'none';
+}
+
+if (manageAcc != null) {
+    hideJumbotron();
+
+    let hoverElem = document.querySelector(".manage-account .avatar .background-icon");
+    initialLetter.onmouseover = () => {
+        hoverElem.style.display = 'flex';
+    };
+    initialLetter.onmouseout = () => {
+        hoverElem.style.display = 'none';
+    };
+}
+
+if (avatarInput != null) {
+    avatarInput.onchange = () => {
+        let avatarBackground = document.querySelector(".manage-account .avatar");
+
+        const [file] = avatarInput.files;
+        if (file) {
+            let imagePath = URL.createObjectURL(file);
+            avatarBackground.style.backgroundImage = 'url(' + imagePath + ')';
+            initialLetter.innerHTML = '';
+        }
+    };
+}
+
+if (manageAcc != null) {
+    let newPasswordInput = document.querySelector(".manage-account #newPassword");
+    let confirmPasswordInput = document.querySelector(".manage-account #confirmPassword");
+    let oldPasswordInput = document.querySelector(".manage-account #oldPassword");
+    let submitBtn = document.querySelector(".manage-account #submitBtn");
+
+    newPasswordInput.focused = false;
+    confirmPasswordInput.focused = false;
+    oldPasswordInput.focused = false;
+
+    submitBtn.onclick = () => {
+        if (newPasswordInput.value === '') {
+            newPasswordInput.required = false;
+            confirmPasswordInput.required = false;
+            confirmPasswordInput.value = '';
+            oldPasswordInput.required = false;
+            oldPasswordInput.value = '';
+        }
+    };
+
 }

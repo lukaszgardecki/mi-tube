@@ -88,6 +88,9 @@ a {
     align-items: center;
     justify-content: center;
     user-select: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .menu-item .user-tab > .avatar {
@@ -106,10 +109,66 @@ a {
     font-size: var(--navbar-item-popup-name-font-size);
 }
 
+.manage-account .avatar {
+    color: var(--main-text-color);
+    font-size: 3em;
+    margin:auto;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    z-index: 800;
+    position: relative;
+    overflow: hidden;
+}
+
+.manage-account .avatar span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+
+.manage-account .avatar i {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.manage-account .avatar .background-icon {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 35%;
+    align-self: end;
+    position: absolute;
+    cursor: inherit;
+    background-color: rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    display: none;
+}
+
+
+.manage-account h2 {
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.manage-account h4 {
+    color: var(--main-text-color);
+    font-weight: 300;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
 .menu-item ul {
     width: 100%;
     position: relative;
     list-style: none;
+    z-index: 100;
 }
 
 .menu-item ul li {
@@ -477,10 +536,6 @@ textarea {
     padding: 30px;
     overflow: hidden;
 }
-
-/*.wrapper.add-film {*/
-/*    margin: 50px auto;*/
-/*}*/
 
 .wrapper.delete-genre {
     height: auto;

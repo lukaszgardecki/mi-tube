@@ -148,18 +148,44 @@ if (avatarInput != null) {
     };
 }
 
+function hide(field) {
+    field.style.display = 'none';
+}
+
+function show(field) {
+    field.style.display = 'flex';
+}
+
+function isEmpty(field) {
+    return field.value === '';
+}
+
+function isNotEmpty(field) {
+    return field.value !== '';
+}
+
 if (manageAcc != null) {
     let newPasswordInput = document.querySelector(".manage-account #newPassword");
     let confirmPasswordInput = document.querySelector(".manage-account #confirmPassword");
-    let oldPasswordInput = document.querySelector(".manage-account #oldPassword");
+    let oldPasswordInput = document.querySelector(".manage-account #oldPasswordInput");
+    let oldPassField = document.querySelector(".manage-account #oldPasswordField");
     let submitBtn = document.querySelector(".manage-account #submitBtn");
+    let errorInfo = document.querySelector('.manage-account .form-message-error');
+    let errorInfoIsNotDisplayed = errorInfo === null || isEmpty(errorInfo);
 
     newPasswordInput.focused = false;
     confirmPasswordInput.focused = false;
     oldPasswordInput.focused = false;
 
+    if (errorInfoIsNotDisplayed) hide(oldPassField);
+
+    newPasswordInput.onchange = () => {
+        if (isNotEmpty(newPasswordInput)) show(oldPassField);
+        else hide(oldPassField);
+    };
+
     submitBtn.onclick = () => {
-        if (newPasswordInput.value === '') {
+        if (isEmpty(newPasswordInput)) {
             newPasswordInput.required = false;
             confirmPasswordInput.required = false;
             confirmPasswordInput.value = '';

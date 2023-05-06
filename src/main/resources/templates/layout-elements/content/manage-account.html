@@ -14,7 +14,6 @@
 
             <div class="form-wrapper">
                 <form action="#" th:action="@{/myaccount}" method="post" enctype="multipart/form-data" class="">
-                    <input type="hidden" name="currentEmail" th:value="${#authentication.name}"/>
 
                     <label class="avatar" th:style="${session.user.avatar ne null}
                             ? 'background-image: url('+ @{|/avatar/${session.user.avatar}|} +')'
@@ -29,7 +28,7 @@
                     <h2 th:text="|Welcome *{firstName} *{lastName}|">Welcome John Smith</h2>
                     <h4>Manage your info</h4>
 
-                    <p th:each="error : ${#fields.errors()}" th:text="${error}" class="form-message">Message</p>
+                    <p th:each="error : ${#fields.errors()}" th:text="${error}" class="form-message-error">Message</p>
 
                     <div class="row">
                         <div class="input-group">
@@ -51,19 +50,19 @@
                     </div>
 
                     <div class="row">
-                        <div class="input-group">
-                            <input type="password" id="newPassword" th:field="*{newPassword}" required>
+                        <div class="input-group" th:classappend="*{#fields.hasErrors('newPassword')} ? 'input-group-error'">
+                            <input type="password" id="newPassword"  th:field="*{newPassword}" required>
                             <label>New password</label>
                         </div>
-                        <div class="input-group">
+                        <div class="input-group" th:classappend="*{#fields.hasErrors('confirmPassword')} ? 'input-group-error'">
                             <input type="password" id="confirmPassword" th:field="*{confirmPassword}" required>
                             <label>Confirm new password</label>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="input-group">
-                            <input type="password" id="oldPassword" th:field="*{oldPassword}" required>
+                        <div id="oldPasswordField" class="input-group" th:classappend="*{#fields.hasErrors('oldPassword')} ? 'input-group-error'">
+                            <input type="password" id="oldPasswordInput" th:field="*{oldPassword}" required>
                             <label>Old password</label>
                         </div>
                     </div>

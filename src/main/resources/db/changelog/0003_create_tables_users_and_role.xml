@@ -11,10 +11,13 @@
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
+            <column name="first_name" type="VARCHAR(100)"/>
+            <column name="last_name" type="VARCHAR(100)"/>
             <column name="email" type="VARCHAR(100)">
                 <constraints unique="true"/>
             </column>
             <column name="password" type="VARCHAR(200)"/>
+            <column name="avatar" type="VARCHAR(100)"/>
         </createTable>
 
         <createTable tableName="user_role">

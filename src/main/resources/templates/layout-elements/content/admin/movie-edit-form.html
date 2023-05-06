@@ -20,7 +20,7 @@
                 <label>Choose a movie</label>
             </div>
             <div class="form-wrapper">
-                <form action="#" th:action="@{/admin/edytuj-film}" method="post"
+                <form action="#" th:action="@{/admin/movie-edit}" method="post"
                       enctype="multipart/form-data" class="invisible"
                       th:each="movie, i : ${movies}" th:object="${movie}" th:id="movie-option- + ${i.index}">
 

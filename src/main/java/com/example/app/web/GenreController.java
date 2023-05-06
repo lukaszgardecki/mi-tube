@@ -23,7 +23,7 @@ public class GenreController {
         this.movieService = movieService;
     }
 
-    @GetMapping("/gatunek/{name}")
+    @GetMapping("/genre/{name}")
     public String getGenre(@PathVariable String name, Model model) {
         GenreDto genre = genreService.findGenreByName(name)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -31,13 +31,13 @@ public class GenreController {
         model.addAttribute("heading", genre.getName());
         model.addAttribute("description", genre.getDescription());
         model.addAttribute("movies", movies);
-        return "movie-listing";
+        return "layout-elements/content/movie-listing";
     }
 
-    @GetMapping("/gatunki-filmowe")
+    @GetMapping("/movie-genres")
     public String getGenreList(Model model) {
         List<GenreDto> genres = genreService.findAllGenres();
         model.addAttribute("genres", genres);
-        return "genre-listing";
+        return "layout-elements/content/genre-listing";
     }
 }

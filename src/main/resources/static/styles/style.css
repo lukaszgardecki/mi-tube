@@ -4,6 +4,7 @@
     --navbar-logo-font-size: 1.5rem;
     --navbar-item-log-icon: 1.4rem;
     --navbar-item-font-size: 1 rem;
+    --navbar-item-popup-name-font-size: 1.2rem;
 
     --preview-card-title-font-size: 1.2rem;
     --preview-card-header-font-size: 1.6rem;
@@ -55,25 +56,178 @@ a {
 
 .menu-item {
     width: 100%;
-    padding: 5px 16px;
-    border-bottom: 1px var(--preview-card-border-color) solid;
     text-align: center;
     display: none;
     margin: auto;
 }
 
-.menu-item a {
+.menu-item > a {
     color: var(--main-text-color);
     display: flex;
     text-align: center;
     justify-content: center;
     font-size: var(--navbar-item-font-size);
-    padding: 5px;
+    padding: 12px 0;
+}
+
+.menu-item > a:hover {
+    background-color: #2f2f2f;
+}
+
+.menu-item .user-tab {
+    position: relative;
+    color: var(--main-text-color);
+    display: flex;
+    justify-content: center;
+}
+
+.avatar {
+    display: flex;
+    border-radius: 50%;
+    background-color: #00579b;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.menu-item .user-tab > .avatar {
+    display: none;
+    width: 32px;
+    height: 32px;
+}
+
+.menu-item .user-tab > .avatar:hover {
+    cursor: pointer;
+}
+
+.menu-item .user-tab li .avatar {
+    width: 40px;
+    height: 40px;
+    font-size: var(--navbar-item-popup-name-font-size);
+}
+
+.manage-account .avatar {
+    color: var(--main-text-color);
+    font-size: 3em;
+    margin:auto;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    z-index: 800;
+    position: relative;
+    overflow: hidden;
+}
+
+.manage-account .avatar span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+
+.manage-account .avatar i {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.manage-account .avatar .background-icon {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 35%;
+    align-self: end;
+    position: absolute;
+    cursor: inherit;
+    background-color: rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    display: none;
+}
+
+
+.manage-account h2 {
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.manage-account h4 {
+    color: var(--main-text-color);
+    font-weight: 300;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.menu-item ul {
+    width: 100%;
+    position: relative;
+    list-style: none;
+    z-index: 100;
+}
+
+.menu-item ul li {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-item ul li:first-child {
+    padding: 16px;
+    border-bottom: 1px solid #ffc107;
+}
+
+.menu-item ul li a {
+    display: block;
+    width: 100%;
+    color: var(--main-text-color);
+}
+
+.menu-item ul li:not(:first-child):hover {
+    background-color: #2f2f2f;
+}
+
+.menu-item ul li .user-info > * {
+    text-align: left;
+    padding-left: 16px;
+}
+
+.menu-item ul li .user-info span {
+    display: block;
+}
+
+.menu-item ul li .user-info .user-name {
+    font-size: var(--navbar-item-popup-name-font-size);
+}
+
+.menu-item ul li .user-info .acc-manage a {
+    margin-top: 20px;
+    user-select: none;
+    color: #3498fd;
+}
+
+.menu-item a .dropdown-list-pos-content {
+    display: flex;
+    padding: 12px 0;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu-item a ion-icon {
     font-size: var(--navbar-item-log-icon);
-    padding-right: 3px;
+    margin-right: 3px;
+}
+
+.menu-item ul li .dropdown-icon {
+    display: none;
+}
+
+.menu-item ul li .dropdown-text {
+    margin-left: 7px;
 }
 
 .expanded > .menu-item {
@@ -383,10 +537,6 @@ textarea {
     overflow: hidden;
 }
 
-/*.wrapper.add-film {*/
-/*    margin: 50px auto;*/
-/*}*/
-
 .wrapper.delete-genre {
     height: auto;
 }
@@ -408,9 +558,9 @@ textarea {
     text-align: center;
 }
 
-.form-wrapper p {
-    margin-top: 25px;
-}
+/*.form-wrapper p {*/
+/*    margin-top: 25px;*/
+/*}*/
 
 .row {
     display: flex;
@@ -434,6 +584,10 @@ textarea {
     position: relative;
     margin: 30px 0;
     border-bottom: 2px solid var(--main-text-color);
+}
+
+.input-group-error {
+    border-bottom: 2px solid red;
 }
 
 .textarea-group {
@@ -640,6 +794,11 @@ input[type="file"] {
     text-align: center;
 }
 
+.form-message-error {
+    color: red;
+    text-align: center;
+}
+
 .pick-movie {
     display: block;
     padding-bottom: 100px;
@@ -765,12 +924,29 @@ input[type="file"] {
 
 
 @media only screen and (min-width: 992px) {
-    /*na ekranie powyżej 992px przycisk do rozwijania menu zostanie ukryty*/
+
+    .menu > li:first-child {
+        order: 1;
+    }
+    .menu > li:nth-child(2) {
+        order: 2;
+    }
+    .menu > li:nth-child(3) {
+        order: 5;
+    }
+    .menu > li:nth-child(4) {
+        order: 3;
+    }
+    .menu > li:nth-child(5) {
+        order: 4;
+    }
+
     .menu-toggle {
         display: none;
     }
 
     .menu-item {
+        padding: 5px 16px;
         display: block;
         width: auto;
         border-bottom: 0;
@@ -782,7 +958,7 @@ input[type="file"] {
         font-weight: 500;
     }
 
-    .menu-item a::after {
+    .menu-item > a::after {
         content: '';
         position: absolute;
         left: 0;
@@ -796,15 +972,67 @@ input[type="file"] {
         transition: .5s;
     }
 
-    .menu-item a:hover::after {
+    .menu-item > a:hover::after {
         transform-origin: left;
         transform: scaleX(1);
+    }
+
+    .menu-item > a:hover {
+        background-color: unset;
+    }
+
+    .menu-item .user-tab {
+        display: block;
+    }
+
+    .menu-item .user-tab > .avatar {
+        display: flex;
+
+    }
+
+    .menu-item ul {
+        width: auto;
+        display: none;
+        position: absolute;
+        right: 0;
+    }
+
+    .menu-item ul li {
+        display: flex;
+        background-color: #282828;
+        width: 15rem;
+        justify-content: left;
+    }
+
+    .menu-item ul li:first-child {
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+
+    .menu-item ul li:not(:first-child) {
+        padding: 0 16px;
+    }
+
+    .menu-item ul li:last-child {
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .menu-item a .dropdown-list-pos-content {
+        justify-content: left;
+    }
+
+    .menu-item ul li .dropdown-icon {
+        display: block;
+        width: 30px;
+        font-size: 1rem;
+        height: 100%;
+        justify-items: left;
     }
 
     .menu-logo-container {
         flex: 1;
     }
-
 
     .main-content,
     .menu {

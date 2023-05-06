@@ -15,6 +15,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
     @ManyToMany(fetch = FetchType.EAGER)
@@ -24,4 +26,5 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private Set<UserRole> roles = new HashSet<>();
+    private String avatar;
 }

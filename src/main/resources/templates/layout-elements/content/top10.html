@@ -13,8 +13,8 @@
                 <ul class="movie-list" th:remove="all-but-first">
                     <li class="movie-list-item" th:each="movie, i : ${movies}">
                         <span class="position" th:text="${i.count}"></span>
-                        <a href="#" th:href="@{|/film/${movie.id}|}">
-                            <img src="../static/img/poster-placeholder.png"
+                        <a href="#" th:href="@{|/movie/${movie.id}|}">
+                            <img src="../../../static/img/poster-placeholder.png"
                                  th:src="${movie.poster ne null} ? @{|/img/${movie.poster}|} : @{/img/poster-placeholder.png}"
                                  alt="Movie title"
                                  th:alt="${movie.title}"
@@ -25,14 +25,14 @@
                             <div class="movie-list-item-content top10-header">
                                 <h3 class="movie-list-item-title">
                                     <a href="#"
-                                       th:href="@{|/film/${movie.id}|}"
+                                       th:href="@{|/movie/${movie.id}|}"
                                        th:text="${movie.title}"
                                     >Movie title</a>
                                 </h3>
                                 <h4 th:text="|${movie.originalTitle} ${movie.releaseYear}|">Original title 1990</h4>
                             </div>
                             <p class="movie-summary-item">
-                                genre: <a href="#" th:href="@{|/gatunek/${movie.genre}|}" th:text="${movie.genre}">Fantasy</a>
+                                genre: <a href="#" th:href="@{|/genre/${movie.genre}|}" th:text="${movie.genre}">Fantasy</a>
                             </p>
                         </div>
 
@@ -44,7 +44,7 @@
                     </li>
                     <li class="movie-list-item">
                         <a href="#">
-                            <img src="../static/img/poster-placeholder.png" alt="Movie title" class="movie-list-item-poster">
+                            <img src="../../../static/img/poster-placeholder.png" alt="Movie title" class="movie-list-item-poster">
                         </a>
                         <div class="movie-list-item-card">
                             <div class="movie-list-item-content">
@@ -62,7 +62,7 @@
                     </li>
                     <li class="movie-list-item">
                         <a href="#">
-                            <img src="../static/img/poster-placeholder.png" alt="Movie title" class="movie-list-item-poster">
+                            <img src="../../../static/img/poster-placeholder.png" alt="Movie title" class="movie-list-item-poster">
                         </a>
                         <div class="movie-list-item-card">
                             <div class="movie-list-item-content">

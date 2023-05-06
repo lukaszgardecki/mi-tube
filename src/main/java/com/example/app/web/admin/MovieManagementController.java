@@ -9,11 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("/admin")
 public class MovieManagementController {
     private final MovieService movieService;
     private final GenreService genreService;
@@ -23,7 +25,7 @@ public class MovieManagementController {
         this.genreService = genreService;
     }
 
-    @GetMapping("/admin/dodaj-film")
+    @GetMapping("/movie-add")
     public String addMovieForm(Model model) {
         List<GenreDto> allGenres = genreService.findAllGenres();
         model.addAttribute("genres", allGenres);
@@ -31,55 +33,55 @@ public class MovieManagementController {
         MovieSaveDto movie = new MovieSaveDto();
         model.addAttribute("movie", movie);
 
-        return "admin/movie-add-form";
+        return "layout-elements/content/admin/movie-add-form";
     }
 
-    @PostMapping("/admin/dodaj-film")
+    @PostMapping("/movie-add")
     public String addMovie(MovieSaveDto movie, RedirectAttributes redirectAttributes) {
         movieService.addMovie(movie);
 
         redirectAttributes.addFlashAttribute(
                 AdminController.NOTIFICATION_ATTRIBUTE,
-                "Film %s został zapisany".formatted(movie.getTitle())
+                "%s movie has been saved".formatted(movie.getTitle())
         );
         return "redirect:/admin";
     }
 
-    @GetMapping("/admin/edytuj-film")
+    @GetMapping("/movie-edit")
     public String editMovieForm(Model model) {
         List<MovieDto> movies = movieService.findAllMovies();
         List<GenreDto> allGenres = genreService.findAllGenres();
 
         model.addAttribute("movies", movies);
         model.addAttribute("genres", allGenres);
-        return "admin/movie-edit-form";
+        return "layout-elements/content/admin/movie-edit-form";
     }
 
-    @PostMapping("/admin/edytuj-film")
+    @PostMapping("/movie-edit")
     public String editMovie(MovieSaveDto movie, RedirectAttributes redirectAttributes) {
         movieService.saveEditedMovie(movie);
 
         redirectAttributes.addFlashAttribute(
                 AdminController.NOTIFICATION_ATTRIBUTE,
-                "Film %s został zapisany".formatted(movie.getTitle())
+                "%s movie has been changed.".formatted(movie.getTitle())
         );
         return "redirect:/admin";
     }
 
-    @GetMapping("/admin/usun-film")
+    @GetMapping("/movie-delete")
     public String deleteMovieForm(Model model) {
         List<MovieDto> movies = movieService.findAllMovies();
 
         model.addAttribute("movies", movies);
-        return "admin/movie-delete-form";
+        return "layout-elements/content/admin/movie-delete-form";
     }
 
-    @PostMapping("/admin/usun-film")
+    @PostMapping("/movie-delete")
     public String deleteMovie(Long movieId, RedirectAttributes redirectAttributes) {
         MovieDto deletedMovie = movieService.deleteMovieById(movieId);
         redirectAttributes.addFlashAttribute(
                 AdminController.NOTIFICATION_ATTRIBUTE,
-                "Film %s został usunięty".formatted(deletedMovie.getTitle())
+                "%s movie has been removed.".formatted(deletedMovie.getTitle())
         );
         return "redirect:/admin";
     }

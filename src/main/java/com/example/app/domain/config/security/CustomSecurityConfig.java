@@ -3,7 +3,6 @@ package com.example.app.domain.config.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -25,8 +24,9 @@ public class CustomSecurityConfig {
                         .requestMatchers("/admin/**").hasAnyRole(EDITOR_ROLE, ADMIN_ROLE)
                         .anyRequest().permitAll())
                 .formLogin(login -> login
-                        .loginPage("/login")
-                        .permitAll())
+                        .loginPage("/login").permitAll()
+                        .defaultSuccessUrl("/login-success", true)
+                )
                 .logout(logout -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout/**", HttpMethod.GET.name()))
                         .logoutSuccessUrl("/login?logout").permitAll())

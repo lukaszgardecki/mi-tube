@@ -23,7 +23,7 @@
                         <td class="name-col" th:text="*{name}">Horror</td>
                         <td class="desc-col" th:text="*{description}">Super Mario Bros</td>
                         <td class="btn-col">
-                            <form action="#" th:action="@{/admin/usun-gatunek}" method="post">
+                            <form action="#" th:action="@{/admin/genre-delete}" method="post">
                                 <input type="hidden" name="genreId" th:value="*{id}">
                                 <button type="submit">Delete</button>
                             </form>

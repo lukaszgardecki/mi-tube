@@ -22,6 +22,6 @@ public class HomeController {
         List<MovieDto> promotedMovies = movieService.findAllPromotedMovies();
         model.addAttribute("heading", "Promoted movies");
         model.addAttribute("movies", promotedMovies);
-        return "movie-listing";
+        return "layout-elements/content/movie-listing";
     }
 }

@@ -5,8 +5,8 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorate="~{layout}"
 >
-
-    <ul class="menu" layout:fragment="navbar">
+<nav class="navbar" layout:fragment="navbar">
+    <ul class="menu">
         <li class="menu-logo-container">
             <a href="#" th:href="@{/}">
                         <span class="logo">
@@ -72,4 +72,5 @@
         <li class="menu-item"><a href="#" th:href="@{/movie-genres}">Genres</a></li>
         <li class="menu-item"><a href="#" th:href="@{/top10}">Top 10</a></li>
     </ul>
+</nav>
 </html>

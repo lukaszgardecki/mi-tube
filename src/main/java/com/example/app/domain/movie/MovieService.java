@@ -93,6 +93,7 @@ public class MovieService {
 
         if (posterIsChanged) {
             String savedFileName = fileStorageService.saveImage(movieToGet.getPoster());
+            fileStorageService.deleteImage(movieToSet.getPoster());
             movieToSet.setPoster(savedFileName);
         }
     }

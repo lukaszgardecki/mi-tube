@@ -2,11 +2,11 @@ insert into
     users (first_name, last_name, email, password, avatar)
 values
 --     password: adminpass
-    ('Mario', 'Prada','admin@example.com', '{bcrypt}$2a$10$mbU0nK/DUpHgy1ncyAEUN.m8QE9gIXLP6DwYb9/WaFUVZy86/zIJ6', 'photo0.jpg'),
+    ('Mario', 'Prada','admin@example.com', '{bcrypt}$2a$10$mbU0nK/DUpHgy1ncyAEUN.m8QE9gIXLP6DwYb9/WaFUVZy86/zIJ6', 'mario-prada0.jpg'),
 --     password: userpass
-    ('Tommy', 'Hilfiger', 'user@example.com', '{bcrypt}$2a$10$rOZ4x9b/F.Pu7L9awPKaB.c.11kk7.1IVvsjn9BsITGiXZCHIouC6', null),
+    ('Tommy', 'Hilfiger', 'user@example.com', '{bcrypt}$2a$10$rOZ4x9b/F.Pu7L9awPKaB.c.11kk7.1IVvsjn9BsITGiXZCHIouC6', 'thomas-jacob-hilfiger0.jpg'),
 --     password: editorpass
-    ('Louis', 'Vuitton','editor@example.com', '{bcrypt}$2a$10$.ha3TJQrO9Xr3osg.C5PUeH3cTa7RdXR56GyoVxxnlg0eq87MRm2K', null);
+    ('Louis', 'Vuitton','editor@example.com', '{bcrypt}$2a$10$.ha3TJQrO9Xr3osg.C5PUeH3cTa7RdXR56GyoVxxnlg0eq87MRm2K', 'Portrait-Louis-Vuitton0.jpg');
 
 insert into
     user_role (name, description)

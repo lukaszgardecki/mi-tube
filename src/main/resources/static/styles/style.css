@@ -977,6 +977,10 @@ input[type="file"] {
         transform: scaleX(1);
     }
 
+    .menu-item > a:hover {
+        background-color: unset;
+    }
+
     .menu-item .user-tab {
         display: block;
     }

@@ -47,9 +47,9 @@
                         <form action="#" th:action="@{/rate-movie}" method="post" sec:authorize="isAuthenticated()" class="movie-rating-form">
                             <p>Your rating</p>
                             <input type="hidden" name="movieId" th:value="${movie.id}">
-                            <div class="movie-rating-buttons">
-                                <button class="movie-rating-button" name="rating" th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i}">
-                                    <ion-icon name="star" th:name="${i <= userRating ? 'star' : 'star-outline'}"></ion-icon>
+                            <div class="movie-rating-buttons" th:value="${userRating}">
+                                <button class="movie-rating-button" name="rating" th:each="i : ${#numbers.sequence(1, movie.statsPercentage.size())}" th:value="${i}">
+                                    <ion-icon th:id="|rating-btn-${i}|" name="star" th:name="${i <= userRating ? 'star' : 'star-outline'}"></ion-icon>
                                 </button>
                             </div>
                         </form>
@@ -58,6 +58,33 @@
                         </p>
                     </div>
                 </section>
+                <section class="movie-info-stats-container movie-section">
+                    <div class="movie-info-container">
+                        <h2 class="movie-section-heading">Movie info</h2>
+                    </div>
+                    <div class="movie-stats-container">
+                        <h2 class="movie-section-heading">Voting statistics</h2>
+                        <div class="voting-stats" th:value="${movie.statsPercentage.size()}">
+
+                            <span id="maxPercent" hidden="hidden" th:value="${movie.highestRatePercentage}"></span>
+                            <div class="stat" th:each="i : ${#numbers.sequence(movie.statsPercentage.size(), 1)}">
+
+                                <div class="stat-star">
+                                    <ion-icon name="star"></ion-icon>
+                                    <span th:text="${i}">10</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div th:id="|star-${i}|" class="value" th:value="${movie.statsPercentage.get(i)}"></div>
+                                </div>
+                                <div class="percentage">
+                                    <span th:text="|${movie.statsPercentage.get(i)}%|">12%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
 <!--    TRAILER        -->
                 <section class="movie-trailer-container movie-section">
                     <h2 class="movie-section-heading">Trailer</h2>

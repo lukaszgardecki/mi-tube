@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashMap;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -20,4 +22,6 @@ public class MovieDto {
     private String poster;
     private Double avgRating;
     private int ratingCount;
+    private HashMap<Integer, String> statsPercentage;
+    private double highestRatePercentage;
 }

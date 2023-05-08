@@ -193,5 +193,57 @@ if (manageAcc != null) {
             oldPasswordInput.value = '';
         }
     };
+}
+
+const moviePage = document.querySelector(".movie");
+if (moviePage != null) {
+    const maxRateRange = document
+        .querySelector(".movie-stats-container .voting-stats")
+        .getAttribute('value');
+    const maxPercent = document
+        .getElementById("maxPercent")
+        .getAttribute('value');
+    const starButtons = document.querySelector(".movie-rating-buttons");
+    const userIsAuthenticated = starButtons != null;
+
+
+    for (let i = maxRateRange; i >= 1; i--) {
+        let bar = document.getElementById("star-" + i);
+        let barValue = bar.getAttribute('value');
+        let totalBarWidth = barValue * 100.0 / maxPercent;
+        bar.style.width = totalBarWidth + '%';
+    }
+
+    if (userIsAuthenticated) {
+        const userRating = parseInt(starButtons.getAttribute('value'));
+
+        window.onmouseover = (e) => {
+            let star = e.target;
+            let starId = star.id.toString();
+            if (starId.startsWith('rating-btn-')) {
+                let starValue = starId.replace('rating-btn-', '');
+                for (let i = userRating + 1; i <= starValue; i++) {
+                    let s = document.getElementById("rating-btn-" + i);
+                    s.style.color = getComputedStyle(document.documentElement)
+                        .getPropertyValue('--second-text-color');
+                    s.setAttribute('name', 'star');
+                }
+            }
+        };
+
+        window.onmouseout = (e) => {
+            let star = e.target;
+            let starId = star.id.toString();
+            if (starId.startsWith('rating-btn-')) {
+                let starValue = starId.replace('rating-btn-', '');
+                for (let i = userRating + 1; i <= starValue; i++) {
+                    let s = document.getElementById("rating-btn-" + i);
+                    s.style.color = getComputedStyle(document.documentElement)
+                        .getPropertyValue('--main-text-color');
+                    s.setAttribute('name', 'star-outline');
+                }
+            }
+        };
+    }
 
 }

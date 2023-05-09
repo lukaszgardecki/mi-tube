@@ -17,4 +17,9 @@ public class MovieSaveDto {
     private String genre;
     private boolean promoted;
     private MultipartFile poster;
+    private String director;
+    private String writer;
+    private String country;
+    private Integer runningTime;
+    private Long boxOffice;
 }

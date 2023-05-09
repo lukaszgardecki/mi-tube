@@ -29,4 +29,9 @@ public class Movie {
     private Set<Rating> ratings = new HashSet<>();
     private boolean promoted;
     private String poster;
+    private String director;
+    private String writer;
+    private String country;
+    private Integer runningTime;
+    private Long boxOffice;
 }

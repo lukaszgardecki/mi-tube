@@ -48,7 +48,7 @@
                             <p>Your rating</p>
                             <input type="hidden" name="movieId" th:value="${movie.id}">
                             <div class="movie-rating-buttons" th:value="${userRating}">
-                                <button class="movie-rating-button" name="rating" th:each="i : ${#numbers.sequence(1, movie.statsPercentage.size())}" th:value="${i}">
+                                <button th:id="|movie-rating-button-${i}|" class="movie-rating-button" name="rating" th:each="i : ${#numbers.sequence(1, movie.statsPercentage.size())}" th:value="${i}">
                                     <ion-icon th:id="|rating-btn-${i}|" name="star" th:name="${i <= userRating ? 'star' : 'star-outline'}"></ion-icon>
                                 </button>
                             </div>
@@ -88,7 +88,7 @@
 <!--    TRAILER        -->
                 <section class="movie-trailer-container movie-section">
                     <h2 class="movie-section-heading">Trailer</h2>
-                    <iframe width="560" height="315" class="movie-trailer"
+                    <iframe class="movie-trailer"
                             src="https://www.youtube.com/embed/V75dMMIW2B4"
                             th:src="|https://www.youtube.com/embed/${movie.getYoutubeTrailer}|"
                             frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>

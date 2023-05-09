@@ -46,14 +46,17 @@ public class MovieMapper {
     }
 
     private static HashMap<Integer, String> getStatsPercentage(Movie movie) {
-        HashMap<Integer, String> statsPercentage = new HashMap<>();
+        HashMap<Integer, String> statsPercentage = new HashMap<>(RatingService.RATING_HIGHEST);
         int ratingCount = movie.getRatings().size();
 
         for (int i = RatingService.RATING_LOWEST; i <= RatingService.RATING_HIGHEST; i++) {
             int rating = i;
-            long amount = movie.getRatings().stream().filter(rat -> rat.getRating() == rating).count();
-            BigDecimal bigDecimal = BigDecimal.valueOf(amount * 100.0 / ratingCount);
-            String percentage = getStringPercentage(bigDecimal);
+            String percentage = "0";
+            if (ratingCount != 0) {
+                long amount = movie.getRatings().stream().filter(rat -> rat.getRating() == rating).count();
+                BigDecimal bigDecimal = BigDecimal.valueOf(amount * 100.0 / ratingCount);
+                percentage = getStringPercentage(bigDecimal);
+            }
             statsPercentage.put(rating, percentage);
         }
         return statsPercentage;

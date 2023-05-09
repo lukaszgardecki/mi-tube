@@ -210,40 +210,63 @@ if (moviePage != null) {
     for (let i = maxRateRange; i >= 1; i--) {
         let bar = document.getElementById("star-" + i);
         let barValue = bar.getAttribute('value');
-        let totalBarWidth = barValue * 100.0 / maxPercent;
-        bar.style.width = totalBarWidth + '%';
+        if (barValue === "0") {
+            bar.style.width = '0';
+        } else {
+            let totalBarWidth = barValue * 100.0 / maxPercent;
+            bar.style.width = totalBarWidth + '%';
+        }
     }
 
     if (userIsAuthenticated) {
         const userRating = parseInt(starButtons.getAttribute('value'));
+        const buttons = document.querySelector('.movie-rating-buttons');
 
-        window.onmouseover = (e) => {
-            let star = e.target;
-            let starId = star.id.toString();
-            if (starId.startsWith('rating-btn-')) {
-                let starValue = starId.replace('rating-btn-', '');
-                for (let i = userRating + 1; i <= starValue; i++) {
-                    let s = document.getElementById("rating-btn-" + i);
-                    s.style.color = getComputedStyle(document.documentElement)
-                        .getPropertyValue('--second-text-color');
-                    s.setAttribute('name', 'star');
-                }
+        function fillAllStarsTo(starNum) {
+            for (let i = userRating + 1; i <= starNum; i++) {
+                fillStar(i);
+            }
+        }
+
+        function unfillAllStarsTo(starNum) {
+            for (let i = userRating + 1; i <= starNum; i++) {
+                unfillStar(i);
+            }
+        }
+
+        function fillStar(starNum) {
+            let star = document.getElementById("rating-btn-" + starNum);
+            star.style.color = getComputedStyle(document.documentElement)
+                .getPropertyValue('--second-text-color');
+            star.setAttribute('name', 'star');
+        }
+
+        function unfillStar(starNum) {
+            let star = document.getElementById("rating-btn-" + starNum);
+            star.style.color = getComputedStyle(document.documentElement)
+                .getPropertyValue('--main-text-color');
+            star.setAttribute('name', 'star-outline');
+        }
+
+        buttons.onmouseover = (e) => {
+            let target = e.target;
+            let targetId = target.id.toString();
+            let targetIsStar = targetId.startsWith('rating-btn-');
+            let starNum = targetId.replace('rating-btn-','');
+            if (targetIsStar) {
+                fillAllStarsTo(starNum);
             }
         };
 
-        window.onmouseout = (e) => {
-            let star = e.target;
-            let starId = star.id.toString();
-            if (starId.startsWith('rating-btn-')) {
-                let starValue = starId.replace('rating-btn-', '');
-                for (let i = userRating + 1; i <= starValue; i++) {
-                    let s = document.getElementById("rating-btn-" + i);
-                    s.style.color = getComputedStyle(document.documentElement)
-                        .getPropertyValue('--main-text-color');
-                    s.setAttribute('name', 'star-outline');
-                }
+        buttons.onmouseout = (e) => {
+            let target = e.target;
+            let targetId = target.id.toString();
+            let targetIsStar = targetId.startsWith('rating-btn-');
+            let starNum = targetId.replace('rating-btn-','');
+            if (targetIsStar) {
+                unfillAllStarsTo(starNum);
             }
-        };
+        }
     }
 
 }

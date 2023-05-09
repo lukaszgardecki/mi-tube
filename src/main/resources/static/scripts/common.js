@@ -205,6 +205,18 @@ if (moviePage != null) {
         .getAttribute('value');
     const starButtons = document.querySelector(".movie-rating-buttons");
     const userIsAuthenticated = starButtons != null;
+    const trailer = document.querySelector(".movie-section iframe");
+
+    window.onresize = () => {
+        let trailerWidth = trailer.width;
+        if (window.innerWidth < trailerWidth) {
+            trailer.style.width = '100%';
+            trailer.style.height = (trailerWidth * 0.5625) + 'px';
+        } else {
+            trailer.style.maxWidth = '560px';
+            trailer.style.maxHeight = '315px';
+        }
+    };
 
 
     for (let i = maxRateRange; i >= 1; i--) {
@@ -268,5 +280,7 @@ if (moviePage != null) {
             }
         }
     }
+
+
 
 }

@@ -59,7 +59,7 @@
                             <p style="text-align: center" th:text="|Ratings: ${movie.ratingCount}|">Ratings: 123</p>
                         </div>
                         <form action="#" th:action="@{/rate-movie}" method="post" class="movie-rating-form">
-                            <p>Your rating</p>
+                            <p></p>
                             <input type="hidden" name="movieId" th:value="${movie.id}">
                             <div class="movie-rating-buttons">
                                 <button class="movie-rating-button" name="rating" th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i}">

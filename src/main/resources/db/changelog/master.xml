@@ -17,6 +17,6 @@ https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
     <include file="../testdata/0003_user_role.sql" relativeToChangelogFile="true" context="dev"/>
     <include file="../testdata/0004_users.sql" relativeToChangelogFile="true" context="dev"/>
     <include file="../testdata/0005_user_roles.sql" relativeToChangelogFile="true" context="dev"/>
-    <include file="../testdata/0006_movie_ratings.sql" relativeToChangelogFile="true" context="dev"/>
+    <include file="../testdata/0006_movie_rating.sql" relativeToChangelogFile="true" context="dev"/>
     <include file="../testdata/0007_genre_movies.sql" relativeToChangelogFile="true" context="dev"/>
 </databaseChangeLog>

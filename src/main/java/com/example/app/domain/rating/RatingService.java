@@ -5,12 +5,13 @@ import com.example.app.domain.movie.MovieRepository;
 import com.example.app.domain.user.User;
 import com.example.app.domain.user.UserRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 @Service
 public class RatingService {
+    public static final int RATING_LOWEST = 1;
+    public static final int RATING_HIGHEST = 10;
     private final RatingRepository ratingRepository;
     private final UserRepository userRepository;
     private final MovieRepository movieRepository;

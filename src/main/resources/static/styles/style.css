@@ -445,13 +445,23 @@ a {
 }
 
 .movie-rating-button {
-    color: var(--main-text-color);
-    background-color: #ffc107;
     border: 0;
-    padding: 4px;
+    background-color: transparent;
     font-size: 1.6rem;
-    border-radius: 6px;
-    opacity: 0.8;
+}
+
+.movie-rating-button > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie-rating-button > ion-icon[name='star'] {
+    color: var(--second-text-color);
+}
+
+.movie-rating-button > ion-icon[name='star-outline'] {
+    color: var(--main-text-color);
 }
 
 .movie-rating-button:hover {
@@ -468,6 +478,72 @@ a {
     padding: 16px;
     border: 1px var(--preview-card-border-color) solid;
     border-radius: 4px;
+}
+
+.movie-section .movie-info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-section .movie-stats-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.voting-stats {
+    display: block;
+    padding:  15px 0;
+}
+
+.voting-stats > * {
+    display: flex;
+}
+
+.voting-stats .stat {
+    padding: 3px 0;
+    display: flex;
+    align-items: center;
+}
+
+.stat > .stat-star {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    width: 15%;
+}
+
+.stat > .stat-star > * {
+    display: flex;
+    vertical-align: center;
+    align-items: center;
+}
+
+.stat > .stat-star span {
+    padding-left: 7px;
+}
+
+.stat > .stat-star ion-icon {
+    color: var(--second-text-color);
+}
+
+.stat > .progress-bar {
+    width: 70%;
+    height: 0.6rem;
+    background-color: rgba(246, 246, 246, 0.5);
+    border-radius: 0.3rem;
+}
+
+.stat > .progress-bar .value {
+    height: 100%;
+    border-radius: 0.3rem;
+    background-color: var(--second-text-color);
+}
+
+.stat > .percentage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
 }
 
 .movie-section-heading {
@@ -1067,8 +1143,7 @@ input[type="file"] {
     }
 
     .movie-rating-button {
-        font-size: 1.2rem;
-        margin: 0 4px;
+        font-size: 1.3rem;
     }
     .trailer-poster {
         width: 60%;
@@ -1076,6 +1151,18 @@ input[type="file"] {
 
     .poster-preview {
         width: 40%;
+    }
+
+    .movie-info-stats-container {
+        display: flex;
+    }
+
+    .movie-section .movie-info-container {
+        width: 50%;
+    }
+
+    .movie-section .movie-stats-container {
+        width: 50%;
     }
 
 }

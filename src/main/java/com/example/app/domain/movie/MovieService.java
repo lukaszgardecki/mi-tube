@@ -96,6 +96,12 @@ public class MovieService {
             fileStorageService.deleteImage(movieToSet.getPoster());
             movieToSet.setPoster(savedFileName);
         }
+
+        movieToSet.setDirector(movieToGet.getDirector());
+        movieToSet.setWriter(movieToGet.getWriter());
+        movieToSet.setCountry(movieToGet.getCountry());
+        movieToSet.setRunningTime(movieToGet.getRunningTime());
+        movieToSet.setBoxOffice(movieToSet.getBoxOffice());
     }
 
     private String prepareYTTrailerId(String youtubeTrailer) {

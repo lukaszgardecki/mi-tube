@@ -36,7 +36,12 @@ public class MovieMapper {
                 avgRating,
                 ratingCount,
                 statsPercentage,
-                highestRatePercentage
+                highestRatePercentage,
+                movie.getDirector(),
+                movie.getWriter(),
+                movie.getCountry(),
+                movie.getRunningTime(),
+                movie.getBoxOffice()
         );
     }
 

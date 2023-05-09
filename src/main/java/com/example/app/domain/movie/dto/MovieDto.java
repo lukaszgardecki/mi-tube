@@ -24,4 +24,9 @@ public class MovieDto {
     private int ratingCount;
     private HashMap<Integer, String> statsPercentage;
     private double highestRatePercentage;
+    private String director;
+    private String writer;
+    private String country;
+    private Integer runningTime;
+    private Long boxOffice;
 }

@@ -27,6 +27,34 @@
                             <label>Original title</label>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="input-group">
+                            <input type="text" th:field="*{director}" required>
+                            <label>Director</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" th:field="*{writer}" required>
+                            <label>Writer</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group">
+                            <input type="text" th:field="*{country}" required>
+                            <label>Country</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="number" th:field="*{runningTime}" required>
+                            <label>Time</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="number" th:field="*{boxOffice}" required>
+                            <label>Box office</label>
+                        </div>
+                    </div>
+
 
                     <div class="row">
                         <div class="input-group">

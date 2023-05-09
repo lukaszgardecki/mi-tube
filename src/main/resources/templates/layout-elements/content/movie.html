@@ -61,6 +61,28 @@
                 <section class="movie-info-stats-container movie-section">
                     <div class="movie-info-container">
                         <h2 class="movie-section-heading">Movie info</h2>
+                        <div class="movie-info">
+                            <div class="info-row">
+                                <span class="info-header">Director</span>
+                                <span class="info-content" th:text="${movie.director}">Christopher Smith</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-header">Writer</span>
+                                <span class="info-content" th:text="${movie.writer}">Christopher Smith</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-header">Country</span>
+                                <span class="info-content" th:text="${movie.country}">United States</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-header">Running time</span>
+                                <span class="info-content" th:text="|${movie.runningTime} minutes|">109 minutes</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-header">Box office</span>
+                                <span class="info-content" th:text="'$' + ${#numbers.formatDecimal(movie.boxOffice,5, 'WHITESPACE', 0, 'POINT')}">$40 000 000</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="movie-stats-container">
                         <h2 class="movie-section-heading">Voting statistics</h2>

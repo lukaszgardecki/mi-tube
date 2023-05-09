@@ -485,6 +485,30 @@ a {
     flex-direction: column;
 }
 
+.movie-info-container .movie-info {
+    padding: 15px 10px;
+    width: 100%;
+}
+
+.movie-info-container .info-row {
+    width: 100%;
+}
+
+.movie-info-container .info-row > * {
+    display: inline-flex;
+    margin: 10px 0;
+}
+
+.movie-info-container .info-header {
+    color: var(--movie-original-title-color);
+
+    width: 120px;
+}
+
+.movie-info-container .info-content {
+    width: available;
+}
+
 .movie-section .movie-stats-container {
     display: flex;
     flex-direction: column;

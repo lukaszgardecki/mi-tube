@@ -218,7 +218,6 @@ if (moviePage != null) {
         }
     };
 
-
     for (let i = maxRateRange; i >= 1; i--) {
         let bar = document.getElementById("star-" + i);
         let barValue = bar.getAttribute('value');

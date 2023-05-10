@@ -101,7 +101,7 @@ public class MovieService {
         movieToSet.setWriter(movieToGet.getWriter());
         movieToSet.setCountry(movieToGet.getCountry());
         movieToSet.setRunningTime(movieToGet.getRunningTime());
-        movieToSet.setBoxOffice(movieToSet.getBoxOffice());
+        movieToSet.setBoxOffice(movieToGet.getBoxOffice());
     }
 
     private String prepareYTTrailerId(String youtubeTrailer) {

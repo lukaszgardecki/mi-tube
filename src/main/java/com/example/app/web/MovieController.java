@@ -40,8 +40,10 @@ public class MovieController {
     @GetMapping("/top10")
     public String findTop10(Model model) {
         List<MovieDto> top10Movies = movieService.findTopMovies(10);
-        model.addAttribute("heading", "TOP 10");
-        model.addAttribute("description", "Top rated movies");
+        String jumbotronHeader = "TOP 10";
+        String jumbotronDescription = "Top rated movies";
+        model.addAttribute("jumbotronHeader", jumbotronHeader);
+        model.addAttribute("jumbotronDescription", jumbotronDescription);
         model.addAttribute("movies", top10Movies);
         return "layout-elements/content/top10";
     }
@@ -49,6 +51,10 @@ public class MovieController {
     @GetMapping("/top-boxoffice")
     public String findTopBoxOffice(Model model) {
         List<MovieDto> topBoxOfficeMovies = movieService.findTopBoxOfficeMovies(10);
+        String jumbotronHeader = "TOP 10 Box Office";
+        String jumbotronDescription = "Highest-grossing movies";
+        model.addAttribute("jumbotronHeader", jumbotronHeader);
+        model.addAttribute("jumbotronDescription", jumbotronDescription);
         model.addAttribute("movies", topBoxOfficeMovies);
         return "layout-elements/content/top-boxoffice";
     }

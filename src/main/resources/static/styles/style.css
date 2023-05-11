@@ -313,7 +313,7 @@ a {
 .jumbotron-header {
     font-size: 3rem;
     margin: 1rem 0;
-    color: var(--main-text-color);
+    color: var(--second-text-color);
 }
 
 .jumbotron-description {

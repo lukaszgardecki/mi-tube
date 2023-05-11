@@ -34,9 +34,14 @@
                             </p>
                         </div>
 
-                        <div class="movie-list-item-rating top10">
-<!--                            <ion-icon name="star" class="star"></ion-icon>-->
-                            <span th:if="${movie.boxOffice}" th:text="'$' + ${#numbers.formatDecimal(movie.boxOffice*1.0/1000000,1, 'WHITESPACE', 1, 'POINT')} + 'M'">$123.5M</span>
+                        <div class="movie-list-item-rating box-office sum">
+                            <span th:if="${movie.boxOffice}"
+                                  th:text="${movie.boxOffice*1.0/1000000 >= 1000} ?
+                                  '$' + ${#numbers.formatDecimal(movie.boxOffice/1000000000.0,1, 'WHITESPACE', 2, 'POINT')} + ' B' :
+                                  '$' + ${#numbers.formatDecimal(movie.boxOffice/1000000.0,1, 'WHITESPACE', 1, 'POINT')} + ' M'"
+                            >
+                                $123.5 M
+                            </span>
                             <span th:if=" !${movie.boxOffice}">Unknown</span>
                         </div>
                     </li>

@@ -21,8 +21,7 @@ public class HomeController {
     String home(Model model) {
         List<MovieDto> promotedMovies = movieService.findAllPromotedMovies();
         String jumbotronHeader = "MI Tube";
-        String jumbotronDescription = "Welcome! Discover, rate and discuss the latest productions and cinema classics.";
-
+        String jumbotronDescription = "Welcome! Discover, rate and discuss the latest productions and cinema classics";
         model.addAttribute("jumbotronHeader", jumbotronHeader);
         model.addAttribute("jumbotronDescription", jumbotronDescription);
         model.addAttribute("heading", "Promoted movies");

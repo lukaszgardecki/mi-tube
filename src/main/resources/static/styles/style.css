@@ -16,6 +16,8 @@
 
     --movie-original-title-color: #9e9e9e;
 
+    --top10-boxoffice-sum-font-size: 1.2rem;
+
     --admin-textarea-padding: 7px;
 }
 
@@ -61,7 +63,6 @@ a {
 }
 
 .navbar-container {
-    display: block;
     justify-content: space-between;
     width: 100%;
 }
@@ -113,8 +114,8 @@ a {
 
 .menu-item .user-tab > .avatar {
     display: none;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
 }
 
 .menu-item .user-tab > .avatar:hover {
@@ -131,8 +132,8 @@ a {
     color: var(--main-text-color);
     font-size: 3em;
     margin:auto;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     cursor: pointer;
     z-index: 800;
     position: relative;
@@ -303,6 +304,7 @@ a {
 }
 
 .jumbotron {
+    min-height: 140px;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgb(0, 0, 0)), url('../img/jumbotron.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -379,6 +381,7 @@ a {
 }
 
 .top10-header {
+    padding-top: 10px;
     height: 100%;
 }
 
@@ -394,11 +397,16 @@ a {
     color: var(--second-text-color);
 }
 
-.top10 {
+.top10,
+.box-office {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 15rem;
+}
+
+.sum {
+    font-size: var(--top10-boxoffice-sum-font-size);
 }
 
 .movie-summary {
@@ -642,7 +650,7 @@ textarea {
 /*LOGIN/REGISTER FORM START*/
 .wrapper {
     position: relative;
-    margin: 50px auto;
+    margin: 0 auto;
     min-width: 350px;
     min-height: 450px;
     background: #000;
@@ -654,6 +662,10 @@ textarea {
 
 .wrapper.delete-genre {
     height: auto;
+}
+
+.wrapper.manage-account {
+    margin: 50px auto;
 }
 
 .wrapper > .input-group select {

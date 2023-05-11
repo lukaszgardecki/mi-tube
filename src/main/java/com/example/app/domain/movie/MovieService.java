@@ -76,6 +76,16 @@ public class MovieService {
         return movieToDelete;
     }
 
+    public List<MovieDto> findTopMovies(int size) {
+        Pageable page = Pageable.ofSize(size);
+        return movieRepository.findTopByRating(page).stream().map(MovieMapper::map).toList();
+    }
+
+    public List<MovieDto> findTopBoxOfficeMovies(int size) {
+        Pageable page = Pageable.ofSize(size);
+        return movieRepository.findTopByBoxOffice(page).stream().map(MovieMapper::map).toList();
+    }
+
     private void prepareObjectToSave(Movie movieToSet, MovieSaveDto movieToGet) {
         boolean posterIsChanged = !Objects.equals(movieToGet.getPoster().getOriginalFilename(), "")
                 && movieToGet.getPoster() != null;
@@ -109,10 +119,5 @@ public class MovieService {
         int idStart = youtubeTrailer.indexOf("=")+1;
         int idEnd = idStart + idLen;
         return youtubeTrailer.substring(idStart, idEnd);
-    }
-
-    public List<MovieDto> findTopMovies(int size) {
-        Pageable page = Pageable.ofSize(size);
-        return movieRepository.findTopByRating(page).stream().map(MovieMapper::map).toList();
     }
 }

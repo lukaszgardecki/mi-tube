@@ -45,4 +45,11 @@ public class MovieController {
         model.addAttribute("movies", top10Movies);
         return "layout-elements/content/top10";
     }
+
+    @GetMapping("/top-boxoffice")
+    public String findTopBoxOffice(Model model) {
+        List<MovieDto> topBoxOfficeMovies = movieService.findTopBoxOfficeMovies(10);
+        model.addAttribute("movies", topBoxOfficeMovies);
+        return "layout-elements/content/top-boxoffice";
+    }
 }

@@ -30,6 +30,10 @@ public class CustomSecurityConfig {
                 .logout(logout -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout/**", HttpMethod.GET.name()))
                         .logoutSuccessUrl("/login?logout").permitAll())
+                .rememberMe(remember -> remember
+                        .key("aBcdeFgHijklMNopqRstUvwxYZ1234567890")
+                        .tokenValiditySeconds(60 * 60 * 24 * 30)
+                )
                 .csrf().ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**"));
 
         http.headers().frameOptions().sameOrigin();

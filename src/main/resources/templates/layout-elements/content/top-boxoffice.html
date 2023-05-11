@@ -8,8 +8,6 @@
     <body>
         <div class="container">
             <main class="main-content" layout:fragment="content">
-<!--                <h2 class="list-heading" th:if="${heading}" th:text="${heading}">Promoted movies / Genre name</h2>-->
-                <p class="list-description" th:text="${description}">Description</p>
                 <ul class="movie-list" th:remove="all-but-first">
                     <li class="movie-list-item" th:each="movie, i : ${movies}">
                         <span class="position" th:text="${i.count}"></span>
@@ -36,9 +34,14 @@
                             </p>
                         </div>
 
-                        <div class="movie-list-item-rating top10">
-<!--                            <ion-icon name="star" class="star"></ion-icon>-->
-                            <span th:if="${movie.boxOffice}" th:text="'$' + ${#numbers.formatDecimal(movie.boxOffice*1.0/1000000,1, 'WHITESPACE', 1, 'POINT')} + 'M'">$123.5M</span>
+                        <div class="movie-list-item-rating box-office sum">
+                            <span th:if="${movie.boxOffice}"
+                                  th:text="${movie.boxOffice*1.0/1000000 >= 1000} ?
+                                  '$' + ${#numbers.formatDecimal(movie.boxOffice/1000000000.0,1, 'WHITESPACE', 2, 'POINT')} + ' B' :
+                                  '$' + ${#numbers.formatDecimal(movie.boxOffice/1000000.0,1, 'WHITESPACE', 1, 'POINT')} + ' M'"
+                            >
+                                $123.5 M
+                            </span>
                             <span th:if=" !${movie.boxOffice}">Unknown</span>
                         </div>
                     </li>

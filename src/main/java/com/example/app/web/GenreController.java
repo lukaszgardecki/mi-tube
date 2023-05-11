@@ -28,8 +28,8 @@ public class GenreController {
         GenreDto genre = genreService.findGenreByName(name)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         List<MovieDto> movies = movieService.findMoviesByGenreName(name);
-        model.addAttribute("heading", genre.getName());
-        model.addAttribute("description", genre.getDescription());
+        model.addAttribute("jumbotronHeader", genre.getName());
+        model.addAttribute("jumbotronDescription", genre.getDescription());
         model.addAttribute("movies", movies);
         return "layout-elements/content/movie-listing";
     }
@@ -37,6 +37,10 @@ public class GenreController {
     @GetMapping("/movie-genres")
     public String getGenreList(Model model) {
         List<GenreDto> genres = genreService.findAllGenres();
+        String jumbotronHeader = "Movie genres";
+        String jumbotronDescription = "Genres in our catalogue. Choose one for you!";
+        model.addAttribute("jumbotronHeader", jumbotronHeader);
+        model.addAttribute("jumbotronDescription", jumbotronDescription);
         model.addAttribute("genres", genres);
         return "layout-elements/content/genre-listing";
     }

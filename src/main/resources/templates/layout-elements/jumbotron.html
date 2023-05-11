@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="pl"
+      xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}"
 >
 
     <header class="jumbotron" layout:fragment="jumbotron">
-        <h1 class="jumbotron-header">MI Tube</h1>
-        <p class="jumbotron-description">
-            Welcome! Discover, rate and discuss the latest productions and cinema classics.
+        <h1 class="jumbotron-header" th:if="${jumbotronHeader}" th:text="${jumbotronHeader}">
+            App name
+        </h1>
+        <p class="jumbotron-description" th:if="${jumbotronDescription}" th:text="${jumbotronDescription}">
+            Some description
         </p>
     </header>
 </html>

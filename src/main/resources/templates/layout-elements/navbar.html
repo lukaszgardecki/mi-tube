@@ -6,8 +6,8 @@
       layout:decorate="~{layout}"
 >
 <nav class="navbar" layout:fragment="navbar">
-    <ul class="menu">
-        <li class="menu-logo-container">
+    <div class="navbar-container">
+        <div class="menu-logo-container">
             <a href="#" th:href="@{/}">
                         <span class="logo">
                             <ion-icon name="tv"></ion-icon>
@@ -15,62 +15,65 @@
                         </span>
                 <span class="text">Tube</span>
             </a>
-        </li>
-        <li class="menu-toggle"><a href="#"><i id="toggle-icon" class="far fa-plus-square"></i></a></li>
+            <div class="menu-toggle"><a href="#"><i id="toggle-icon" class="far fa-plus-square"></i></a></div>
+        </div>
+        <ul class="menu">
+            <li class="menu-item"><a href="#" th:href="@{/movie-genres}">Genres</a></li>
+            <li class="menu-item"><a href="#" th:href="@{/top10}">Top 10</a></li>
+            <li class="menu-item"><a href="#" th:href="@{/top-boxoffice}">Top Box Office</a></li>
 
-        <li class="menu-item">
-            <a href="#" th:href="@{/login}" sec:authorize="!isAuthenticated()">
-                <ion-icon name="log-in-outline"></ion-icon>
-                <span>Sign in</span>
-            </a>
+            <li class="menu-item">
+                <a href="#" th:href="@{/login}" sec:authorize="!isAuthenticated()">
+                    <ion-icon name="log-in-outline"></ion-icon>
+                    <span>Sign in</span>
+                </a>
 
-            <div class="user-tab" sec:authorize="isAuthenticated()">
-                <div class="avatar"
-                     th:text="${session.user.avatar ne null ? '' : session.user.initials}"
-                     th:style="${session.user.avatar ne null}
+                <div class="user-tab" sec:authorize="isAuthenticated()">
+                    <div class="avatar"
+                         th:text="${session.user.avatar ne null ? '' : session.user.initials}"
+                         th:style="${session.user.avatar ne null}
                             ? 'background-image: url('+ @{|/avatar/${session.user.avatar}|} +')'
                             : 'background-image: none' ">
-                    JS
-                </div>
-                <ul>
-                    <li>
-                        <div class="avatar"
-                             th:text="${session.user.avatar ne null ? '' : session.user.initials}"
-                             th:style="${session.user.avatar ne null}
+                        JS
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="avatar"
+                                 th:text="${session.user.avatar ne null ? '' : session.user.initials}"
+                                 th:style="${session.user.avatar ne null}
                             ? 'background-image: url('+ @{|/avatar/${session.user.avatar}|} +')'
                             : 'background-image: none' ">
-                            JS
-                        </div>
-                        <div class="user-info">
-                            <span class="user-name" th:text="|${session.user.firstName} ${session.user.lastName}|">John Smith</span>
-                            <span class="acc-manage"><a href="#" th:href="@{/myaccount}">Manage your account</a></span>
-                        </div>
-                    </li>
-                    <li sec:authorize="hasAnyRole('ADMIN', 'EDITOR')">
-                        <a href="#" th:href="@{/admin}">
-                            <div class="dropdown-list-pos-content">
+                                JS
+                            </div>
+                            <div class="user-info">
+                                <span class="user-name" th:text="|${session.user.firstName} ${session.user.lastName}|">John Smith</span>
+                                <span class="acc-manage"><a href="#" th:href="@{/myaccount}">Manage your account</a></span>
+                            </div>
+                        </li>
+                        <li sec:authorize="hasAnyRole('ADMIN', 'EDITOR')">
+                            <a href="#" th:href="@{/admin}">
+                                <div class="dropdown-list-pos-content">
                                         <span class="dropdown-icon">
                                             <i class="icon-cog-alt"></i>
                                         </span>
-                                <span class="dropdown-text">Admin Panel</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" th:href="@{/logout}">
-                            <div class="dropdown-list-pos-content">
+                                    <span class="dropdown-text">Admin Panel</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" th:href="@{/logout}">
+                                <div class="dropdown-list-pos-content">
                                         <span class="dropdown-icon">
                                             <i class="icon-off"></i>
                                         </span>
-                                <span class="dropdown-text">Sign out</span>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li class="menu-item"><a href="#" th:href="@{/movie-genres}">Genres</a></li>
-        <li class="menu-item"><a href="#" th:href="@{/top10}">Top 10</a></li>
-    </ul>
+                                    <span class="dropdown-text">Sign out</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
 </nav>
 </html>

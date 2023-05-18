@@ -3,6 +3,7 @@ package com.example.app.domain.rating;
 import com.example.app.domain.movie.Movie;
 import com.example.app.domain.user.User;
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

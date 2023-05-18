@@ -3,10 +3,13 @@ package com.example.app.domain.movie;
 import com.example.app.domain.genre.Genre;
 import com.example.app.domain.rating.Rating;
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity

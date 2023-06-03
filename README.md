@@ -21,6 +21,40 @@ Project is created with:
 - [H2](https://www.h2database.com/html/main.html)
 - [MySQL](https://www.mysql.com/)
 - [BCrypt](https://en.wikipedia.org/wiki/Bcrypt)
+- [Docker](https://www.docker.com/)
+
+## Run with Docker
+- [Install Docker Compose](https://docs.docker.com/compose/install/)
+
+- Clone the project:
+```bash
+git clone https://github.com/lukaszgardecki/mi-tube.git
+```
+- Go to the project directory:
+```bash
+cd mi-tube
+```
+- Run all containers:
+```bash
+docker-compose up -d
+```
+- Please be patient. It may take a while.
+- MI Tube is available at: `http://localhost:8080`
+- You can log in to the account:
+  <br>&nbsp; *(The list of created accounts is in the `src/main/resources/db/testdata/0004_users.sql` file.)*
+```
+ADMIN:
+email: admin@example.com
+password: adminpass
+
+EDITOR:
+email: editor@example.com
+password: editorpass
+
+USER:
+email: user@example.com
+password: userpass
+```
 
 ## Features
 

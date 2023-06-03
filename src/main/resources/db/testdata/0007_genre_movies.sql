@@ -1,3 +1,5 @@
+--liquibase formatted sql
+--changeset lukasz:1
 insert into genre_movies
     (movie_id, genre_id)
 values

@@ -1,3 +1,5 @@
+--liquibase formatted sql
+--changeset lukasz:1
 insert into
     user_roles (user_id, role_id)
 values

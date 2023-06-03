@@ -1,3 +1,5 @@
+--liquibase formatted sql
+--changeset lukasz:1
 insert into
     movie_rating (user_id, movie_id, rating)
 values

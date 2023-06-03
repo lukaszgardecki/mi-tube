@@ -1,6 +1,8 @@
+--liquibase formatted sql
+--changeset lukasz:1
 insert into
     user_role (name, description)
 values
-    ('ADMIN', 'pełne uprawnienia'),
-    ('USER', 'podstawowe uprawnienia, możliwość oddawania głosów'),
-    ('EDITOR', 'podstawowe uprawnienia + możliwość zarządzania treściami');
+    ('ADMIN', 'The highest level of access that allows to manage account settings'),
+    ('USER', 'The lowest level of access that allows to rate the movies'),
+    ('EDITOR', 'A basic level of access that allows to rate the movies and manage the content');

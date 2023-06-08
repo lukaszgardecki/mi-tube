@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
 
-    <changeSet id="0006-1" author="lukasz">
+    <changeSet id="0006" author="lukasz">
         <addColumn tableName="movie">
             <column name="director" type="VARCHAR(250)"/>
             <column name="writer" type="VARCHAR(250)"/>

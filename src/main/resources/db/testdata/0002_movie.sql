@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changeset lukasz:1
+--changeset lukasz:0002
 insert into movie (title, original_title, release_year, promoted, genre_id, description, short_description, youtube_trailer_id, director, writer, country, running_time, box_office) values ('Invisible Man, The', 'Three Guys Named Mike', 2004, false, 9, 'Fusce consequat. Nulla nisl. Nunc nisl.
 
 Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.

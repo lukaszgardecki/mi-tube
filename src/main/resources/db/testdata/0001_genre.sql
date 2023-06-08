@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changeset lukasz:1
+--changeset lukasz:0001
 insert into genre(name, description) values ('Drama', 'Suspendisse potenti. In eleifend quam a odio.');
 insert into genre(name, description) values ('Thriller', 'Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus.');
 insert into genre(name, description) values ('Documentary', 'In eleifend quam a odio. In hac habitasse platea dictumst.');

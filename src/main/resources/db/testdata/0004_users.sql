@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changeset lukasz:1
+--changeset lukasz:3
 insert into
     users (first_name, last_name, email, password, avatar)
 values

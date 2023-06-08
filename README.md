@@ -11,8 +11,9 @@ was gradually developed.
 
 ## Technologies and libraries
 Project is created with:
-- [Java 19](https://www.oracle.com/java/technologies/javase/jdk19-archive-downloads.html)
-- [Spring Boot 6](https://spring.io/projects/spring-boot)
+- [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+- [Spring Boot 3.1](https://spring.io/projects/spring-boot)
+- [Spring Data JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/)
 - [Spring Security](https://spring.io/projects/spring-security)
 - [Hibernate](https://hibernate.org/)
 - [Maven](https://maven.apache.org/)
@@ -24,23 +25,28 @@ Project is created with:
 - [Docker](https://www.docker.com/)
 
 ## Run with Docker
-- [Install Docker Compose](https://docs.docker.com/compose/install/)
+1. [Install Docker Compose](https://docs.docker.com/compose/install/)
 
-- Clone the project:
+2. Clone the project:
 ```bash
 git clone https://github.com/lukaszgardecki/mi-tube.git
 ```
-- Go to the project directory:
+3. Go to the project directory:
 ```bash
 cd mi-tube
 ```
-- Run all containers:
+4. Build a project:
+```bash
+./mvnw install
+```
+
+5. Run all containers:
 ```bash
 docker-compose up -d
 ```
-- Please be patient. It may take a while.
-- MI Tube is available at: `http://localhost:8080`
-- You can log in to the account:
+6. Please be patient. It may take a while.
+7. MI Tube is available at: `http://localhost:8080`
+8. You can log in to the account:
   <br>&nbsp; *(The list of created accounts is in the `src/main/resources/db/testdata/0004_users.sql` file.)*
 ```
 ADMIN:
